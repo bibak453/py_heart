@@ -1,0 +1,97 @@
+Scenario are split into TEXT files and DATA files.
+The DATA files contain the flow of the TEXT files.
+
+In the DATA files we are defining scenarios like this:
+-- *01
+-- DisplayMessage 00
+-- DisplayMessage 01
+-- DisplayMessage 02
+-- ...
+-- DisplayMessage 44
+-- DisplayMessage 45
+-- IfLe 15 2e 04
+-- Jump 02 22 01
+-- Jump 02 23 01
+-- End20
+
+DisplayMessage invoked the text block from the TEXT file.
+End20 probably serves as a return function or end funtion. Need to check.
+
+In TEXT files there are TextBlocks that are defined:
+-- *00
+-- ...
+-- ...
+-- EndTextBlk
+
+EndTextBlk serves as the end of a block. Basically a return command in renpy.
+
+---------------------------------------------------------------------------
+
+-- Text "{Message}"
+-- WaitKey
+-- NewLine
+
+This block will display a text - game doesn't display who is speaking
+
+Example:
+-- Text "「わーってるよ！」"
+-- WaitKey
+-- NewLine
+
+WaitPage - this is probablt the equivelent of nvl clear in renpy - it will display every line until a new page should be shown where it should be cleared.
+WaitKey - This probably waits for key input - in renpy this wont be parsed
+Wait - this is a function to wait until the specified ammount. in the lvns it probably is tied to gramerate.
+NewLine probably is an explicit command to print the characters in a new line and if not added it will print characters in the last cursor position. Need to check.
+
+----------------------------------------------------------------------------------------
+
+-- Text "「ふぅ、ふぅ…。"
+-- WaitKey
+-- SayNameD8
+-- SayNameD9
+-- SayNameDA
+-- SayNameDB
+-- SayNameDC
+-- SayNameDD
+-- Text "ちゃん、お願いだから、寝坊しないで」"
+-- WaitKey
+
+SayNameD{NUMBER} - Probably prints a name
+----------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------    {"StartBGM", 0x80},
+FadeBGM
+FadeInBGM
+PauseBGM
+WaitForFadeBGM
+SetNextBGM
+
+flags should be integers i guess?
+SetFlag - Sets the flag to the value
+FlagAdd (and FlagAdd62) - flag Add will add the ammount specified.
+FlagSub - flag Sub will subtract the ammount.
+
+IfEq = if its equal
+IfNe = if its not equal
+IfGt = if its greater (x > y) - x is what it set and y is what do we compare
+IfLe = if its lower (x < y)
+IfGte = if its greater or equal
+IfLte = if its smaller or equal
+IfBitOn - probably the flag check is if its set to true
+IfBitOff - the same but false
+
+Nazo messages are litterally uknown. Probably error codes or just unlockables.
