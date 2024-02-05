@@ -1,0 +1,77 @@
+*00
+End20
+
+*01
+DisplayMessage 00
+DisplayMessage 01
+DisplayMessage 02
+DisplayMessage 03
+DisplayMessage 04
+DisplayMessage 05
+DisplayMessage 06
+DisplayMessage 07
+DisplayMessage 08
+DisplayMessage 09
+DisplayMessage 0a
+DisplayMessage 0b
+DisplayMessage 0c
+TitleDisplay 03
+LoadBG 15
+Nazo44 00 00
+WhiteIn 03
+DisplayMessage 0e
+DisplayMessage 0f
+DisplayMessage 10
+DisplayMessage 11
+DisplayMessage 12
+DisplayMessage 13
+DisplayMessage 14
+DisplayMessage 15
+DisplayMessage 16
+DisplayMessage 17
+DisplayMessage 18
+DisplayMessage 19
+DisplayMessage 1a
+DisplayMessage 1b
+DisplayMessage 1c
+DisplayMessage 1d
+DisplayMessage 1e
+DisplayMessage 1f
+DisplayMessage 20
+DisplayMessage 21
+DisplayMessage 22
+DisplayMessage 23
+DisplayMessage 24
+DisplayMessage 25
+DisplayMessage 26
+DisplayMessage 27
+DisplayMessage 28
+DisplayMessage 29
+DisplayMessage 2a
+DisplayMessage 2b
+DisplayMessage 2c
+DisplayMessage 2d
+DisplayMessage 2e
+DisplayMessage 2f
+DisplayMessage 30
+DisplayMessage 31
+DisplayMessage 32
+DisplayMessage 33
+DisplayMessage 34
+DisplayMessage 35
+DisplayMessage 36
+DisplayMessage 37
+DisplayMessage 38
+DisplayMessage 39
+DisplayMessage 3a
+DisplayMessage 3b
+DisplayMessage 3c
+DisplayMessage 3d
+DisplayMessage 3e
+DisplayMessage 3f
+DisplayMessage 40
+Return2D
+End20
+
+*02
+EndFF

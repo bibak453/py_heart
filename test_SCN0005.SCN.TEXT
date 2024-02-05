@@ -1,0 +1,1741 @@
+*00
+Text "「ねえ、ご飯、ちゃんと食べてる？」"
+WaitKey
+NewLine
+Text "　いきなり、あかりがそんなことを訊いてきた。"
+WaitKey
+NewLine
+Text "「あん？"
+WaitKey
+Text "　なんだよ急に」"
+WaitKey
+NewLine
+Text "「だから、ご飯、ちゃんと食べてるのかなーって」"
+WaitKey
+NewLine
+Text "「食ってるよ、そりゃ、当然」"
+WaitKey
+NewLine
+Text "「ううん、そうじゃなくって、食べてる内容のこと。"
+WaitKey
+Text "ちゃんと栄養のあるもの食べてる？"
+WaitKey
+Text "　例えばゆうべはなに食べたの？」"
+WaitPage
+EndTextBlk
+
+*01
+Text "「ゆうべ？"
+WaitKey
+Text "　ええっと、そうだな、ゆうべはたしか、駅前のコンビニで買った…」"
+WaitKey
+NewLine
+Text "「…カップラーメンとか？」"
+WaitKey
+NewLine
+Text "「おっ、さすが、よく判ってんじゃん」"
+WaitKey
+NewLine
+Text "　オレがそう言うと、あかりは上目づかいで苦笑し、『もう、しょうがないなあ…』という顔をした。"
+WaitPage
+EndTextBlk
+
+*02
+Text "「…そうやってカップラーメンばっかり食べてると、そのうち体こわしちゃうよ？」"
+WaitKey
+NewLine
+Text "「…ばっかりって、昨日はたまたまそうだったんだ。"
+WaitKey
+Text "べつに毎日食ってるわけじゃねぇさ」"
+WaitKey
+NewLine
+Text "「本当に？」"
+WaitKey
+NewLine
+Text "「そりゃそうさ。"
+WaitKey
+Text "いくらオレでも毎日ラーメンばっか食ってたら飽きるしさ」"
+WaitKey
+NewLine
+Text "「そっか。"
+WaitKey
+Text "じゃあ、おとといはなにを食べたの？」"
+WaitKey
+NewLine
+Text "「カップうどんかな。"
+WaitKey
+Text "で、その前が、カップ焼きソバだったかな、たしか」"
+WaitKey
+NewLine
+Text "「……」"
+WaitPage
+EndTextBlk
+
+*03
+Text "　あかりは、心配そうな顔をした。"
+WaitKey
+NewLine
+Text "「駄目だよ、そんな。"
+WaitKey
+Text "もっと栄養のバランスを考えて食事しなきゃ…」"
+WaitKey
+NewLine
+Text "「栄養？"
+WaitKey
+Text "　ああ、そのへんは大丈夫。"
+WaitKey
+Text "抜かりないぜ。"
+WaitKey
+Text "そこを補うように、ちゃんと栄養のあるモン食ってるからさ」"
+WaitKey
+NewLine
+Text "「…本当に？」"
+WaitKey
+NewLine
+Text "「ああ」"
+WaitKey
+NewLine
+Text "　ブロックタイプのバランス栄養食とかな。"
+WaitKey
+NewLine
+Text "　オレは心の中で付け加えた。"
+WaitPage
+EndTextBlk
+
+*04
+Text "「なんだか心配だな…」"
+WaitKey
+NewLine
+Text "「なんだよ、今日はいつになく口うるせーな」"
+WaitKey
+NewLine
+Text "「だって私、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃんのこと、いろいろとおばさんに頼まれてるし…」"
+WaitKey
+NewLine
+Text "「んな約束、テキトーに聞き流しときゃいいんだよ」"
+WaitKey
+NewLine
+Text "「…だけど、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、昔から面倒くさがりだし、片寄った食事ばっかりして、栄養失調とかで倒れたりしたら困るし…」"
+WaitKey
+NewLine
+Text "　あかりは、ぼそぼそと独り言のように呟いた。"
+WaitKey
+NewLine
+Text "「…あのなぁ、お前。"
+WaitKey
+Text "…オレのこと、いったいどんなだらしのないヤツだと思ってんだ？」"
+WaitKey
+NewLine
+Text "「そういうわけじゃないけど…」"
+WaitPage
+EndTextBlk
+
+*05
+Text "　少しなにかを考えてから、あかりが言った。"
+WaitKey
+NewLine
+Text "「…ねえ、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん。"
+WaitKey
+Text "もしよかったら、またこの前みたいに、私がご飯を作りに行ってあげようか？」"
+WaitKey
+NewLine
+Text "　上目づかいにオレを見て、照れながら微笑む。"
+WaitKey
+NewLine
+Text "　そういえばこの前、オレんちに来てビーフシチューを作ってくれたっけ。"
+WaitKey
+NewLine
+Text "　いやあ、あれは正直うまかった。"
+WaitKey
+NewLine
+Text "　食費も浮いて助かったし。"
+WaitKey
+NewLine
+Text "「おう、また作ってくれよ」"
+WaitKey
+NewLine
+Text "　オレが言うと、"
+WaitKey
+NewLine
+Text "「うんっ」"
+WaitKey
+NewLine
+Text "　と、あかりは、大きくうなずいた。"
+WaitPage
+EndTextBlk
+
+*06
+Text "「なんだよ、お披露目したい新しいレパートリーでも増えたのか？」"
+WaitKey
+NewLine
+Text "「うん。"
+WaitKey
+Text "いろいろお母さんに教わったりしてるから。"
+WaitKey
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃんからも、なにか作って欲しいリクエストがあれば、それも練習しておくよ」"
+WaitKey
+NewLine
+Text "　そう言って、あかりはにっこりと微笑んだ。"
+WaitPage
+EndTextBlk
+
+*07
+Text "　…相変わらず、世話好きなヤツだ。"
+WaitKey
+NewLine
+Text "　小さい頃からそうだった。"
+WaitKey
+NewLine
+Text "　べつにこっちが頼んだわけでもないのに、なにかとオレの世話を焼きたがる。"
+WaitKey
+NewLine
+Text "　オレにとって、そんなあかりは言うなれば、面倒見が良くて世話好きな妹って感じだ。"
+WaitKey
+NewLine
+Text "　ときどき妙にお姉さん風を吹かせることもあるが、日頃の付き合い方からしても、やっぱりオレが兄貴で、あかりのほうが妹だろうな。"
+WaitKey
+NewLine
+Text "　実際、オレの方が半年ほど年上だし。"
+WaitPage
+EndTextBlk
+
+*08
+Text "　知らず知らずのうちに、あかりの顔を見て微笑んでいたらしい。"
+WaitKey
+NewLine
+Text "「なあに？」"
+WaitKey
+NewLine
+Text "　はにかみながら、あかりが訊いた。"
+WaitKey
+NewLine
+Text "「いや、べつに…」"
+WaitKey
+NewLine
+Text "　オレはクスッと笑ってはぐらかす。"
+WaitKey
+NewLine
+Text "「もう、なんなの？」"
+WaitKey
+NewLine
+Text "「なんでもねーよ。"
+WaitKey
+Text "…ただ、もうすぐ春だなあ…って思っただけさ」"
+WaitKey
+NewLine
+Text "　そんな口から出任せのセリフで話を濁すと、あかりはなにやら納得のいかない顔をした。"
+WaitPage
+LoadBG2 15 00 00
+EndTextBlk
+
+*09
+Text "　──春が、すぐそこまで来ていた。"
+WaitPage
+EndTextBlk
+
+*0a
+Text "「風、また少し暖かくなったね」"
+WaitKey
+NewLine
+Text "　ゆるやかに吹く風を受け、髪を押さえながらあかりが言った。"
+WaitKey
+NewLine
+Text "　高台にある高校へと続く坂道。"
+WaitKey
+NewLine
+Text "　オレたちは、まばゆい木漏れ日の下を通り抜ける。"
+WaitKey
+NewLine
+Text "　影から出た途端、まぶしい陽射しが体を貫いた。"
+WaitKey
+NewLine
+Text "　オレは目を細め、空を見上げた。"
+WaitPage
+LoadVisualScene 93 00 00
+EndTextBlk
+
+*0b
+Text "　どこまでも広がる、限りなく澄んだクリアブルーの空。"
+WaitKey
+NewLine
+Text "　両手を伸ばせば、体ごとその青に溶け込んでしまいそうな…"
+Wait 1e
+Text "そんな気がした。"
+WaitPage
+EndTextBlk
+
+*0c
+Text "　──春。"
+WaitKey
+NewLine
+Text "　それは新しい出逢いの季節。"
+WaitKey
+NewLine
+Text "　この春、オレはどんな出逢いをするんだろう…？"
+WaitPage
+LoadVisualScene 00 00 0b
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+StartBGM 04
+EndTextBlk
+
+*0d
+EndTextBlk
+
+*0e
+Text "　オレたちの通う高校は、この坂を登った高台の上にある。"
+WaitKey
+NewLine
+Text "　だから朝は、てくてくと、この長い坂道を登らねばならず、それが結構しんどかったりする。"
+WaitKey
+NewLine
+Text "　とはいえ、都会のわりには広い校庭があったりと、施設や環境はまずまず悪くない学校なので、この程度のことぐらいは目をつぶることにしている。"
+WaitPage
+EndTextBlk
+
+*0f
+Text "　８時２２分。"
+WaitKey
+NewLine
+Text "　あと３分ほどで予鈴が鳴る。"
+WaitKey
+NewLine
+Text "　坂道は制服姿の生徒たちで埋め尽くされていた。"
+WaitPage
+EndTextBlk
+
+*10
+Text "　楽しげなお喋りに花を咲かせるやつ。"
+WaitKey
+NewLine
+Text "　眠そうな目をこすりながらあくびをするやつ。"
+WaitKey
+NewLine
+Text "　息を切らせながらも、自転車でいっきに坂道を駆け上っていくやつ。"
+WaitKey
+NewLine
+Text "　着ている制服こそ同じだが、観察すると生徒たちはじつに様々だ。"
+WaitPage
+EndTextBlk
+
+*11
+Text "　坂の上ら辺まで来たとき。"
+WaitKey
+NewLine
+Text "「ねえ、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、あそこにいるの、志保（しほ）じゃない？」"
+WaitKey
+NewLine
+Text "　あかりが、前を歩く背中を指差して言った。"
+WaitKey
+NewLine
+Text "　前を見ると、たしかに見慣れた後ろ姿があった。"
+WaitKey
+NewLine
+Text "　中学の頃からの付き合いだ、いまさら見間違うはずもない、志保だ。"
+WaitKey
+NewLine
+Text "　オレは早足で近づき、ぽんと、肩を叩いた。"
+WaitKey
+NewLine
+Text "「おっす、志保」"
+WaitPage
+Nazo44 00 00
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+StartBGM 0a
+ChangeCharacter 00 04 03
+EndTextBlk
+
+*12
+Text "「げっ、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "！？」"
+WaitKey
+NewLine
+Text "　こっちを振り向いた瞬間、志保は表情を凍らせた。"
+WaitKey
+NewLine
+Text "「な、なんだよ」"
+WaitKey
+NewLine
+Text "「──ってことは、やばっ、遅刻だっ！」"
+WaitKey
+NewLine
+Text "「…おい、コラ、それが第一声か」"
+WaitKey
+NewLine
+Text "　オレは細めた目で睨んで言った。"
+WaitKey
+NewLine
+Text "「時計を見ろ、時計を。"
+WaitKey
+Text "まだ時間あんだろが」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 02
+Text "「あらホント。"
+WaitKey
+Text "じゃあ、時計が遅れてんのかしら」"
+WaitKey
+NewLine
+Text "「オマエなぁ…」"
+WaitKey
+NewLine
+Text "「だって、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "って遅刻の常習犯だしさ」"
+WaitPage
+EndTextBlk
+
+*13
+Text "「いったいいつの話をしてんだよ。"
+WaitKey
+Text "オレが遅刻ばっかしてたのは中学の頃だろ。"
+WaitKey
+Text "最近はマジメなんだ。"
+WaitKey
+Text "遅刻なんか滅多にしてねーよ」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 01
+Text "「あれっ、そうだっけ？"
+WaitKey
+Text "　じゃあ、ちょっとはアンタも社会の常識を覚えたのねぇ」"
+WaitKey
+NewLine
+Text "「このアマ…」"
+WaitKey
+NewLine
+Text "　この朝っぱらから人をムカつかせる女は、長岡志保（ながおかしほ）。"
+WaitKey
+NewLine
+Text "　オレとは中学時代からの腐れ縁で、口さえ開きゃあ、いつも挑戦的なことばかり言ってきやがる。"
+WaitKey
+NewLine
+Text "　おかげでこいつとは口喧嘩が絶えない。"
+WaitPage
+EndTextBlk
+
+*14
+Text "「ったく、オメエの性格の悪さは天下一品だな。"
+WaitKey
+Text "だいたい、フツー朝会ったら、まずは──」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 05
+Text "「やっ、おっはよー、あかりっ」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 04
+Text "「おはよ」"
+WaitKey
+NewLine
+Text "　志保はオレを無視して、あかりに挨拶する。"
+WaitKey
+NewLine
+Text "「…のやろぉ」"
+WaitKey
+NewLine
+Text "　オレはひきつった笑顔を浮かべつつ、ぐぐっと拳を握り締めた。"
+WaitPage
+EndTextBlk
+
+*15
+Text "　あかりと志保、まるっきり性格も違うこのふたり、なんでか妙に仲がいい。"
+WaitKey
+NewLine
+Text "　お互い馬が合うらしく、中学の頃からずっと仲良く付き合っている。"
+WaitKey
+NewLine
+ChangeCharacter 00 04 07
+Text "「それにしても、あんたたちって、相変わらず仲良く一緒に学校来てんのねぇ」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 03
+Text "「まあ、家を出る時間がだいたい同じだから…」"
+WaitKey
+NewLine
+Text "　あかりがぎこちない笑みで答えた。"
+WaitPage
+EndTextBlk
+
+*16
+Text "「はは～ん、なるほど。"
+WaitKey
+Text "わかった、それでかぁ」"
+WaitKey
+NewLine
+Text "　なにやら、突然ひとり納得する志保。"
+WaitKey
+NewLine
+Text "「なんだよ？」"
+WaitKey
+NewLine
+Text "「最近、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "が遅刻しない理由がわかったのよ」"
+WaitKey
+NewLine
+Text "「理由？」"
+WaitKey
+NewLine
+Text "「そ。"
+WaitKey
+Text "結局、毎朝あかりがしっかりと面倒みてるから遅刻しなくなったわけね」"
+WaitKey
+NewLine
+Text "　…うっ。"
+WaitKey
+NewLine
+Text "「朝も起こしてもらったりしてんじゃないの？」"
+WaitKey
+NewLine
+Text "　今朝のこともあるし、否定はできない。"
+WaitPage
+EndTextBlk
+
+*17
+Text "「やっぱりそうなんだぁ。"
+WaitKey
+Text "ねえ、ねえ、もしかして、ベッドまで起こしに行ったりしてるワケ？"
+WaitKey
+Text "　そんで、目覚めにチューとかしたりしてぇ」"
+WaitKey
+NewLine
+Text "　志保が楽しそうにニヤニヤ笑いながら訊く。"
+WaitKey
+NewLine
+Text "「バーカ、いくらなんでも…」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 03
+Text "「今日はたまたまだよ。"
+WaitKey
+Text "いつもは"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、ちゃんと自分で起きるんだから」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 09
+Text "「えっ、マジでそうなのぉ！？"
+WaitKey
+Text "　ホントにチューとかしてんの！？」"
+WaitKey
+NewLine
+Text "「おい、こら、話がごっちゃになってるぞ！"
+WaitKey
+Text "　志保、誤解すんなよ。"
+WaitKey
+Text "家の前から大声で起こしてもらっただけだからな！」"
+WaitPage
+ChangeCharacter 00 04 02
+EndTextBlk
+
+*18
+Text "「…へえ、そうなんだぁ～、ふ～ん」"
+WaitKey
+NewLine
+Text "「ちゃんと聞いてんのか」"
+WaitKey
+NewLine
+Text "　別名『歩く校内ワイドショー』の異名を持つ志保は、その名の通り、おしゃべり大好きオンナだ。"
+WaitKey
+NewLine
+Text "　日頃からウワサ好きな仲間たちと妙なネットワークを形成していて、学校中の情報を交換しあったりしている。"
+WaitKey
+NewLine
+Text "　こういうことは、早いうちに釘を刺しとかないと、おひれはひれのついたウワサ話となって、またたく間に全校に広がっちまう。"
+WaitPage
+EndTextBlk
+
+*19
+Text "「おい、志保。"
+WaitKey
+Text "また、ありもしないことをペラペラと喋るんじゃねーぞ？」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 13
+Text "「ふっふっふ…」"
+WaitKey
+NewLine
+Text "「なんだよ、その笑いは」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 01
+Text "「まあ、でも、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "はともかく、あかりに迷惑かけるわけにはいかないしね。"
+WaitKey
+Text "いいわ、黙っといてあげる。"
+WaitKey
+Text "そのかわり、口止め料は後日請求よ＠」"
+WaitKey
+NewLine
+Text "　そう言って、志保はパチッとウインクした。"
+WaitKey
+NewLine
+Text "　もう立派な恐喝だろ、これは。"
+WaitKey
+NewLine
+Text "「ホントいい性格してるぜ、お前」"
+WaitPage
+EndTextBlk
+
+*1a
+Text "「それにしてもあかり、あんたも大変ね。"
+WaitKey
+Text "毎日こんな甲斐性なしの亭主の面倒見なきゃなんないなんてさ」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 07
+Text "「て、亭主って、志保…」"
+WaitKey
+NewLine
+Text "「おい、誰が甲斐性なしだ？」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 07
+Text "「当然あんたに決まってんでしょ。"
+WaitKey
+Text "わざわざあかりに起こしてもらってるなんて、しょうがないわねぇ」"
+WaitKey
+NewLine
+Text "「今日は、たまたま寝坊したんだよ」"
+WaitKey
+NewLine
+Text "「たまたま？"
+WaitKey
+Text "　『いつも』の、間違いでしょ？」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 03
+Text "「ううん、本当だよ、志保。"
+WaitKey
+Text "こう見えても"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、意外にしっかりしてるんだから」"
+WaitKey
+NewLine
+Text "「『こう見えても』と『意外に』は余計だっつーの」"
+WaitPage
+EndTextBlk
+
+*1b
+LoadPCM 17
+StartPCM 01 00
+Text "　キーンコーンカーンコーン。"
+WaitKey
+NewLine
+Text "　そのとき、学校の校舎から５分前を知らせる予鈴が聞こえてきた。"
+WaitKey
+NewLine
+ChangeCharacter 00 04 09
+Text "「あっ、いっけなーい、遅れちゃうわ！」"
+WaitKey
+NewLine
+Text "　志保が、ポケットから取り出した腕時計を見ながら言った。"
+WaitKey
+NewLine
+ChangeCharacter 00 04 06
+Text "「ほらぁ、アンタに関わると、やっぱり遅刻するんだから！」"
+WaitKey
+NewLine
+Text "「オメーがぺらぺらと喋ってっからだろ！」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 0a
+Text "「それよりも、早く急ごうよ」"
+WaitPage
+NazoPCMA6
+WaitPCM
+StopPCM
+FadeBGM
+FadeInBGM 0f
+SpecialEffect 04
+LoadBG2 11 0a 0a
+EndTextBlk
+
+*1c
+Text "　全力疾走で校門前までやってきた。"
+WaitKey
+NewLine
+Text "「ちょっと待ちなさいよ、この薄情者ぉ～っ！」"
+WaitKey
+NewLine
+Text "「まってよぉ、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃ～ん！」"
+WaitKey
+NewLine
+Text "　後ろから情けないふたつの声がする。"
+WaitKey
+NewLine
+Text "　…ったく、あいつら、足が遅え。"
+WaitKey
+NewLine
+Text "「おめーら、運動不足なんじゃねーのかぁ」"
+WaitKey
+NewLine
+Text "　校門をくぐりながら、後ろのふたりに向かってそう言ったとき──。"
+WaitPage
+PauseBGM
+EndTextBlk
+
+*1d
+Text "　どかっ！！"
+Vibrato 0b
+WaitKey
+NewLine
+Text "「……！」"
+WaitKey
+NewLine
+Text "「あうッ！」"
+WaitPage
+SpecialEffect 04
+LoadBG2 20 0a 0a
+EndTextBlk
+
+*1e
+Text "　前方不注意だったオレは、前を歩いていた見知らぬ女生徒に、勢いよくぶつかってしまった。"
+WaitKey
+NewLine
+Text "　向こうは女のコだけに体重も軽く、ぶつかったというよりも、一方的にこっちが相手を突き飛ばした形になってしまった。"
+WaitKey
+NewLine
+Text "　オレは微妙に体勢を崩すものの、難なくステップで持ちこたえ、一方相手の女生徒は、なんの抵抗もなく倒れ、地面に尻餅をつく。"
+WaitPage
+FadeBGM
+FadeInBGM 08
+LoadVisualScene 20 0a 0a
+EndTextBlk
+
+*1f
+Text "「わ、わりぃっ！"
+WaitKey
+Text "　大丈夫か！？」"
+WaitKey
+NewLine
+Text "　オレは、とにもかくにも、すぐに謝った。"
+WaitKey
+NewLine
+Text "　…あちゃ～、やっちまったぜ。"
+WaitKey
+NewLine
+Text "　持ってた鞄があんなとこまで飛んじまってる。"
+WaitKey
+NewLine
+Text "「ご、ごめん、カンペキこっちの不注意だ」"
+WaitKey
+NewLine
+Text "　オレは頭を掻きながら女生徒に近づいた。"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　最初に目にとまったのは、艶やかな黒髪。"
+WaitKey
+NewLine
+Text "　ゆるやかにウェーブがかった長い髪が、眩しい朝の陽射しを跳ねて柔らかく輝いて見えた。"
+WaitKey
+NewLine
+Text "「…う」"
+WaitKey
+NewLine
+Text "　す、すげー美人って感じ。"
+WaitPage
+EndTextBlk
+
+*20
+Text "　見たこともない女生徒だった。"
+WaitKey
+NewLine
+Text "　なんだか、ちょっと大人びた雰囲気がある。"
+WaitKey
+NewLine
+Text "　上級生…か？"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　女生徒は、倒れたまま、きょとんと、なにがあったのか解らないような顔を向けていた。"
+WaitKey
+NewLine
+Text "「…ごめん、怪我はないか？」"
+WaitKey
+NewLine
+Text "　オレは腰を屈めて訊いた。"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　だが、女生徒はなにも答えず、じぃっとオレの顔を見つめて動かない。"
+WaitPage
+EndTextBlk
+
+*21
+Text "「あの…、もしもし？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　投げかける、無言の視線。"
+WaitKey
+NewLine
+Text "「な、なに？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　よく分からないまま、ただなんとなく見つめ合ってしまうふたり。"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　──はっ！？"
+WaitKey
+NewLine
+Text "　早朝の玄関前で、いったいなにやってんだ。"
+WaitKey
+NewLine
+Text "　思わず、ミョーなノリに付き合わされちまった。"
+WaitPage
+EndTextBlk
+
+*22
+Text "「とにかく、…ホレ、掴まりな」"
+WaitKey
+NewLine
+Text "　オレはそう言って、片手を差し伸べた。"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　伸ばしたオレの手の先を見つめる彼女。"
+WaitKey
+NewLine
+Text "　だが、掴まろうとはしない。"
+WaitKey
+NewLine
+Text "「ホラ？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　もう一度呼び掛けると、再びオレの顔を見た。"
+WaitKey
+NewLine
+Text "　なんだよ、変なコだな。"
+WaitPage
+EndTextBlk
+
+*23
+Text "「ホレ、掴まれってばっ！」"
+WaitKey
+NewLine
+Text "　さっきよりも強めにうながすと、ようやく女生徒は、コクンとうなずいて従った。"
+WaitKey
+NewLine
+Text "　ゆっくりオレの手を握る。"
+WaitKey
+NewLine
+Text "　オレは彼女の手を引いて、起き上がらせた。"
+WaitPage
+SpecialEffect 04
+LoadCharacterAndBg 02 02 02 20 0a 0a
+EndTextBlk
+
+*24
+Text "「わりぃな、ホントに。"
+WaitKey
+Text "怪我はないか？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　オレが訊いても、女生徒は何も答えない。"
+WaitKey
+NewLine
+Text "　一度も口を開かないまま、じぃーっと、オレの顔を見つめ続けるだけ。"
+WaitKey
+NewLine
+Text "「な、なんだよ、オレの顔がなにか？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "「マジで変なヤツ…」"
+WaitPage
+EndTextBlk
+
+*25
+Text "　ふと見ると、彼女のスカートに、チラチラと細かい砂が付いている。"
+WaitKey
+NewLine
+Text "「あ、そこ、汚れてるぜ」"
+WaitKey
+NewLine
+Text "　オレが指差すと、"
+WaitKey
+NewLine
+ChangeCharacter 02 02 03
+Text "「……」"
+WaitKey
+NewLine
+Text "　女生徒はチラッとそれを見たものの、とくに払おうともせず、またこっちに視線を戻した。"
+WaitKey
+NewLine
+Text "「…ホラ、そこ、汚れてるって」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "「あの、もしもし、聞こえてる？」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　無反応。"
+WaitPage
+EndTextBlk
+
+*26
+Text "「あ～っ、もうっ、気になるっ！」"
+WaitKey
+NewLine
+Text "　イライラしたオレは、手で彼女のスカートの汚れを払った。"
+WaitKey
+NewLine
+Text "　ぱんぱん。"
+WaitKey
+NewLine
+Text "「はい、鞄」"
+WaitKey
+NewLine
+Text "　ついでに鞄も拾ってやって、それを手渡した。"
+WaitKey
+NewLine
+ChangeCharacter 02 02 02
+Text "「……」"
+WaitKey
+NewLine
+Text "　女生徒は、無言でそれを受け取った。"
+WaitPage
+EndTextBlk
+
+*27
+Text "「…あの、もしかして、怒ってる？"
+WaitKey
+Text "　怒ってるから、口聞いてくんねーの？」"
+WaitKey
+NewLine
+Text "　そう訊くと、彼女は首を横に振った。"
+WaitKey
+NewLine
+Text "「べつに怒ってないって？」"
+WaitKey
+NewLine
+Text "　コク。"
+WaitKey
+NewLine
+Text "　うなずく。"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　まっ、本人がべつに怒ってないって言うんだから、もういいか。"
+WaitPage
+EndTextBlk
+
+*28
+Text "「"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃ～ん、遅れちゃうよぉ」"
+WaitKey
+NewLine
+Text "　そのとき、玄関の方から、オレを呼ぶあかりの声が聞こえた。"
+WaitKey
+NewLine
+Text "「…あっ、やべっ。"
+WaitKey
+Text "もうすぐチャイムが鳴っちまう。"
+WaitKey
+Text "あんたも急いだほうがいいぜ？"
+WaitKey
+Text "　じゃあな、ホント、悪かったな」"
+WaitKey
+NewLine
+Text "「……」"
+WaitKey
+NewLine
+Text "　オレは片手を上げると、じぃっとこっちを見つめる彼女に背中を向け、その場を後にした。"
+WaitPage
+FadeBGM
+FadeInBGM 06
+LoadBG2 0d 0a 0a
+EndTextBlk
+
+*29
+Text "　靴を履き替えて、廊下に上がったとき、"
+WaitKey
+NewLine
+ChangeCharacter 01 00 02
+Text "「ねぇ、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん。"
+WaitKey
+Text "…来栖川（くるすがわ）さん、転んで怪我とかしなかった？」"
+WaitKey
+NewLine
+Text "　と、あかりが訊いてきた。"
+WaitKey
+NewLine
+Text "「…あん？"
+WaitKey
+Text "　くるすがわ？」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 01
+Text "「うん。"
+WaitKey
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、いま話してたでしょ？」"
+WaitKey
+NewLine
+Text "「あ、彼女、来栖川っていうのか？」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 02
+Text "「えっ、もしかして"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、来栖川先輩のこと、知らなかったの？」"
+WaitKey
+NewLine
+Text "「知らん。"
+WaitKey
+Text "会ったこともなけりゃ、聞くのも見たのも初めてだ。"
+WaitKey
+Text "…くるすがわ？"
+WaitKey
+Text "　変な名前だな」"
+WaitPage
+ChangeCharacter 00 04 0b
+EndTextBlk
+
+*2a
+Text "「はっはっはーっ！"
+WaitKey
+Text "　無知は罪なりよ、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "！」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 02
+Text "　そんなセリフとともに現れたのは、志保だ。"
+WaitKey
+NewLine
+Text "「ウチの高校の生徒でありながら、お嬢様中のお嬢様、来栖川芹香さんを知らないなんて、アンタ、いくらなんでも、ちょっとヤバイわよ」"
+WaitKey
+NewLine
+Text "「オメエには訊いてねーよ」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 03
+Text "「なによぉ、ひどい言いぐさねぇ。"
+WaitKey
+Text "なんにも知らない可哀想なアンタに、わざわざ教えてあげようっていうのよ？」"
+WaitKey
+NewLine
+Text "「ホントは説明を聞かせたくてウズウズしてんだろ？"
+WaitKey
+Text "目が輝いてるぜ」"
+WaitPage
+ChangeCharacter 00 04 01
+EndTextBlk
+
+*2b
+Text "「まあね。"
+WaitKey
+Text "学校内の情報をみんなにお伝えするのは、あたしのステータスだからね」"
+WaitKey
+NewLine
+Text "「…くだんねーことに青春燃やしてんじゃねーよ」"
+WaitKey
+NewLine
+Text "「あんたも知りたい情報があったなら、なんなりと、この長岡志保ちゃんに聞きなさい。"
+WaitKey
+Text "志保ちゃんネットワークは、ありとあらゆる情報のホットステーションなのよ＠」"
+WaitKey
+NewLine
+Text "「はいはい…」"
+WaitKey
+NewLine
+Text "　オレは呆れた顔で、ぞんざいな相づちを打つ。"
+WaitPage
+ChangeCharacter 00 04 02
+EndTextBlk
+
+*2c
+Text "「じゃあ、教えてあげる。"
+WaitKey
+Text "来栖川先輩の来栖川って、来栖川電工とか、来栖川金属とか、来栖川銀行とかのあの来栖川なのよ。"
+WaitKey
+Text "来栖川グループって知ってる？」"
+WaitKey
+NewLine
+Text "「そりゃ、知ってるけど。"
+WaitKey
+Text "へぇ、あの来栖川か？」"
+WaitKey
+NewLine
+Text "「そう、独占資本主義が生んだ巨大なコンツェルン、テレビでもラジオでも、バンバンＣＭやってる、あの有名な来栖川グループよ。"
+WaitKey
+Text "そこの会長さんが、なにを隠そう、芹香さんのじつのお爺さまだっていうから、驚きでしょ！？」"
+WaitPage
+EndTextBlk
+
+*2d
+Text "「…と、いうことは」"
+WaitKey
+NewLine
+Text "「そう、アンタはさっき、いわば日本経済界のプリンセスとも呼ぶべき彼女を思いきり地面に突き飛ばしたのよっ」"
+WaitKey
+NewLine
+Text "「げっ、そうなのか？」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 07
+Text "「…ふふふ、あんた、今夜あたり、黒服の男達に命を狙われたりするかもね？」"
+WaitKey
+NewLine
+Text "　志保は目を細めて、いっひっひ、と笑った。"
+WaitKey
+NewLine
+Text "「こ、恐えコト言うなよ。"
+WaitKey
+Text "シャレになってねーって」"
+WaitPage
+EndTextBlk
+
+*2e
+Text "　そのとき、物騒な話を切り上げようとするかのように、あかりが割って入ってきた。"
+WaitKey
+NewLine
+ChangeCharacter 01 00 04
+Text "「それにしても来栖川さんって、やっぱり美人だよね。"
+WaitKey
+Text "あの綺麗な髪とか、いつ見ても憧れちゃうなあ」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 02
+Text "「そりゃあ、お嬢様だもん、般ピーとは一緒にしちゃダメよ。"
+WaitKey
+Text "…けどさ、あまり大きな声じゃ言えないけど、あのお嬢様、なんかかなりの変人らしいわよ」"
+WaitKey
+NewLine
+Text "　志保が声をひそめて言った。"
+WaitKey
+NewLine
+ChangeCharacter 01 00 02
+Text "「え？」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 07
+Text "「同じ二年の人に聞いた話なんだけど、あのお嬢様、小さい頃から妖しいオカルト関係とかにハマッてる、あっち系の人なんだってぇ」"
+WaitPage
+EndTextBlk
+
+*2f
+Text "「オカルト関係？」"
+WaitKey
+NewLine
+Text "「うん、黒魔術とか降霊術とか、そういった類のヤツほぼ全般。"
+WaitKey
+Text "ホラ、うちの学校の文化部にさ、なんでかよくわかんないけど、オカルト研究会っていうクラブがあるじゃない？"
+WaitKey
+Text "　知ってる？」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 01
+Text "「うん、知ってる」"
+WaitKey
+NewLine
+Text "「なんでも来栖川さん、その妙なクラブの部員らしいのよね。"
+WaitKey
+Text "やっぱ、筋金入りのお嬢様だけに、趣味とかも常人とはかけ離れてたりするのかしらねぇ」"
+WaitPage
+EndTextBlk
+
+*30
+Text "「ほほう、オカルトか」"
+WaitKey
+NewLine
+Text "　あの、ぼーっとした感じのお嬢様にそんなヤバイ系の趣味が？"
+WaitKey
+NewLine
+Text "「結構、いいかもな」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 02
+Text "「なによ。"
+WaitKey
+Text "まさか、アンタまでそういうのに興味あるとか言い出すんじゃないでしょうね？」"
+WaitKey
+NewLine
+Text "「なんで、いいじゃん、オカルト。"
+WaitKey
+Text "秘術的学問たぁ、じつに金持ちらしい、ハイセンスな趣味じゃねーか」"
+WaitKey
+NewLine
+Text "「…ハイセンスぅ？」"
+WaitPage
+EndTextBlk
+
+*31
+LoadPCM 17
+StartPCM 01 00
+Text "　キーンコーンカーンコーン…。"
+WaitKey
+NewLine
+Text "　８時３０分を告げるチャイムの音。"
+WaitKey
+NewLine
+ChangeCharacter 00 04 01
+Text "「あっ、やばっ！"
+WaitKey
+Text "　ホームルームが始まっちゃうわ！"
+WaitKey
+Text "ウチの担任、遅刻チェックに命懸けてるのよ！"
+WaitKey
+Text "　早く行こっ」"
+WaitKey
+NewLine
+LoadVisualScene 00 0a 0b
+Text "　志保が急かし、３人は駆け足で廊下を移動した。"
+WaitPage
+NazoPCMA6
+WaitPCM
+StopPCM
+LoadBG2 07 0b 0a
+EndTextBlk
+
+*32
+Text "　階段を昇った２階が一年の教室だ。"
+WaitKey
+NewLine
+Text "　二年の教室はこの奥で、三年は３階にある。"
+WaitKey
+NewLine
+ChangeCharacter 01 00 04
+Text "「じゃ、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "ちゃん、ここで」"
+WaitKey
+NewLine
+Text "　にこっと笑って、あかりが言った。"
+WaitKey
+NewLine
+Text "　オレはＡ組だが、あかりと志保のふたりはＣ組。"
+WaitKey
+NewLine
+Text "　だからここでお別れだ。"
+WaitPage
+ChangeCharacter 00 04 02
+EndTextBlk
+
+*33
+Text "「しっかり勉強しなさいよ、"
+SayNameDF
+SayNameE0
+SayNameE1
+SayNameE2
+SayNameE3
+SayNameE4
+Text "。"
+WaitKey
+Text "授業中寝てばっかじゃ、アンタだけ二年に上がれないわよ」"
+WaitKey
+NewLine
+Text "「ケッ、落第候補ベスト１０入りのお前に言われたかねーぜ。"
+WaitKey
+Text "オレのことより、テメーの心配をしやがれってんだ」"
+WaitKey
+NewLine
+ChangeCharacter 00 04 06
+Text "「な、なんですってぇ～」"
+WaitKey
+NewLine
+ChangeCharacter 01 00 03
+Text "「ま、まあ、まあ、ふたりとも…。"
+WaitKey
+Text "ホラ、志保。"
+WaitKey
+Text "もうすぐ先生が来ちゃうよ、早く行こ」"
+WaitKey
+NewLine
+Text "「ちょっとまってよ、あかり。"
+WaitKey
+Text "せめてこいつに──」"
+WaitKey
+NewLine
+ClearAndLoadCharacter 00 ff ff
+Text "　ぎゃーぎゃー騒ぎ続ける志保の手を、あかりが強引に引っ張っていった。"
+WaitPage
+EndTextBlk
+
+*34
+Text "「さーてと…」"
+WaitKey
+NewLine
+Text "　うるさいのを見送って一息つくと、オレも自分の教室へと入った。"
+WaitPage
+LoadBG2 02 0a 0a
+EndTextBlk
+
+*35
+Text "　さいわい、先生はまだ来ていないらしく、教室の中はワイワイと賑やかだった。"
+WaitKey
+NewLine
+Text "　ウチの担任の山岡センセは、結構ルーズな性格で、ホームルームには大抵いつも遅れてくる。"
+WaitKey
+NewLine
+Text "　まあ、こっちはそのほうが助かるけど。"
+WaitKey
+NewLine
+Text "　オレは自分の席へと向かった。"
+WaitKey
+NewLine
+Text "　その途中。"
+WaitPage
+Nazo44 00 00
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+StartBGM 0e
+ChangeCharacter 02 08 01
+EndTextBlk
+
+*36
+Text "「ハァイ！"
+WaitKey
+Text "　グッドモーニン、"
+SayNameED
+SayNameEE
+SayNameEF
+SayNameF0
+SayNameF1
+SayNameF2
+Text "！」"
+WaitKey
+NewLine
+Text "　いきなり明るく声を掛けてきたのは、クラスメイトの宮内（みやうち）レミィだった。"
+WaitKey
+NewLine
+Text "　陽気で明るい彼女は、なんとカリフォルニア生れの日系ハーフで、三年前に家族で日本へ移り住んできた、モノホンのパツキンガールだ。"
+WaitKey
+NewLine
+Text "「おっす、レミィ、グッドモーニン」"
+WaitKey
+NewLine
+Text "　オレは下手くそな英語と笑顔で応えた。"
+WaitKey
+NewLine
+Text "　輝くブロンド髪にセーラー服、レミィはクラスでもひときわ目立つ存在だ。"
+WaitKey
+NewLine
+Text "　レミィがひとりいるだけで、うちのクラスもいっきにインターナショナルな感じになる。"
+WaitPage
+ChangeCharacter 02 08 01
+EndTextBlk
+
+*37
+Text "「"
+SayNameED
+SayNameEE
+SayNameEF
+SayNameF0
+SayNameF1
+SayNameF2
+Text "、先生は来てないけど、遅刻だヨ。"
+WaitKey
+Text "もっと早く来ないとダメだヨ」"
+WaitKey
+NewLine
+Text "「そう言うなよ。"
+WaitKey
+Text "今朝はちょっとしたアクシデントがあったんだ」"
+WaitKey
+NewLine
+Text "「ａｃｃｉｄｅｎｔ？」"
+WaitKey
+NewLine
+Text "「そうそう、来る途中、事故に遭っちまってさ。"
+WaitKey
+Text "前方不注意で正面衝突だ」"
+WaitKey
+NewLine
+ChangeCharacter 02 08 09
+Text "「ショーメンショートツ！？"
+WaitKey
+Text "　"
+SayNameED
+SayNameEE
+SayNameEF
+SayNameF0
+SayNameF1
+SayNameF2
+Text "、自動車にハネられたの！？」"
+WaitKey
+NewLine
+Text "「違う、違う。"
+WaitKey
+Text "人間同士だ、人間同士」"
+WaitKey
+NewLine
+ChangeCharacter 02 08 03
+Text "「なんだ、ビックリした」"
+WaitKey
+NewLine
+Text "　レミィはホッと息を吐いた。"
+WaitPage
+EndTextBlk
+
+*38
+Text "「まっ、大した勢いじゃなかったし、ケガもなかったけど、相手に謝ってたら遅れちまった」"
+WaitKey
+NewLine
+Text "「…"
+SayNameED
+SayNameEE
+SayNameEF
+SayNameF0
+SayNameF1
+SayNameF2
+Text "、アンラッキーね」"
+WaitKey
+NewLine
+Text "「いや、でも、考え方によっちゃラッキーだったかもしれねーな。"
+WaitKey
+Text "なんせ、ぶつかった相手は、美人の先輩だったからな」"
+WaitKey
+NewLine
+ChangeCharacter 02 08 01
+Text "「なんで？"
+WaitKey
+Text "　相手が美人だったら、ぶつかっただけでもラッキーなの？」"
+WaitKey
+NewLine
+Text "「まあな。"
+WaitKey
+Text "ドラマチックな出逢いって感じだろ？」"
+WaitKey
+NewLine
+ChangeCharacter 02 08 02
+Text "「ぶつかる出逢いがｄｒａｍａｔｉｃ？"
+WaitKey
+Text "　なるほど、たしかにそうネ。"
+WaitKey
+Text "なるほど」"
+WaitKey
+NewLine
+Text "　レミィは妙に納得してうなずいた。"
+WaitPage
+EndTextBlk
+
+*39
+Text "「だけど、気を付けなきゃダメだヨ。"
+WaitKey
+Text "今日はたまたまケガしなかったけど、次はするかもしれないヨ？」"
+WaitKey
+NewLine
+Text "「なんだ、オレを心配してくれんのか？」"
+WaitKey
+NewLine
+ChangeCharacter 02 08 01
+Text "「トーゼンでしょ。"
+WaitKey
+Text "ｃｌａｓｓｍａｔｅダヨ？」"
+WaitKey
+NewLine
+Text "　…ｃｌａｓｓｍａｔｅか。"
+WaitKey
+NewLine
+Text "　本場仕込みの英語で言う『ｃｌａｓｓｍａｔｅ』は、日本語のクラスメイトとは、不思議とその意味さえも違って聞こえる。"
+WaitKey
+NewLine
+Text "　より深い仲間意識を感じるというか。"
+WaitPage
+EndTextBlk
+
+*3a
+Text "「そっか、サンキューな」"
+WaitKey
+NewLine
+Text "　オレが言うと、レミィはにっこり笑って、その場を去って行った。"
+WaitKey
+NewLine
+ChangeCharacter 02 ff ff
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+StartBGM 06
+Text "　なんだか親しく喋ってはいるけど、オレとレミィ、じつは特別親しい関係ってわけじゃない。"
+WaitKey
+NewLine
+Text "　気さくなレミィは、誰に対してでも、こんなふうに気軽に話し掛けるのだ。"
+WaitKey
+NewLine
+Text "　レミィにとって、オレはただのｃｌａｓｓｍａｔｅのひとりでしかない。"
+WaitPage
+EndTextBlk
+
+*3b
+Text "　自分の椅子に、どっかと腰を下ろしたとき、"
+WaitKey
+NewLine
+ChangeCharacter 02 09 01
+Text "「おはよう、"
+SayNameD8
+SayNameD9
+SayNameDA
+SayNameDB
+SayNameDC
+SayNameDD
+Text "」"
+WaitKey
+NewLine
+Text "　──と、声を掛けてきたのは、あかりに続くオレの幼なじみナンバー２、佐藤雅史（まさし）だった。"
+WaitKey
+NewLine
+Text "「オッス」"
+WaitKey
+NewLine
+Text "　オレも笑顔で応える。"
+WaitKey
+NewLine
+Text "　女のコと見間違われたこともあるかわいい系の顔、ほがらかで人当たりのいい性格、さらにサッカー部の期待のルーキーというおいしい肩書きまで持つ雅史は、クラス中のみんなから好かれる人気者だ。"
+WaitPage
+EndTextBlk
+
+*3c
+Text "　このオレとは幼稚園に入る以前からの付き合いで、なんていうか、弟みたいな存在だ。"
+WaitKey
+NewLine
+Text "　実際、オレとあかりと雅史の３人は、小さい頃から兄弟のように仲良く付き合ってきた。"
+WaitKey
+NewLine
+Text "　構図的には、オレが一番上の兄、真ん中があかり、一番下が雅史といった感じ。"
+WaitKey
+NewLine
+Text "　もちろん今もその関係は続いている。"
+WaitKey
+NewLine
+Text "　最近は部活（サッカー）が忙しいらしく、前みたくオレたちと一緒にいることはなくなったが、それでも普通の友達以上には親しい仲だ。"
+WaitPage
+EndTextBlk
+
+*3d
+Text "「はい、これ、ありがとう」"
+WaitKey
+NewLine
+Text "　雅史はそう言って、ＣＤケースを差し出した。"
+WaitKey
+NewLine
+Text "　見覚えのあるジャケット。"
+WaitKey
+NewLine
+Text "　この前オレが貸してやったＣＤだ。"
+WaitKey
+NewLine
+Text "「おう、そういや貸してたっけ。"
+WaitKey
+Text "どうだった？」"
+WaitKey
+NewLine
+ChangeCharacter 02 09 02
+Text "「うん、良かったよ。"
+WaitKey
+Text "ＭＤに落としちゃった」"
+WaitKey
+NewLine
+Text "「とくに２曲目と３曲目がいいだろ？」"
+WaitKey
+NewLine
+Text "「あと一番最後の曲も。"
+WaitKey
+Text "あ、そういえばもう一枚の方だけど、志保が貸してって言ってるけど、いいの？」"
+WaitKey
+NewLine
+Text "「一泊５０円でいいんならって言っとけ」"
+WaitPage
+EndTextBlk
+
+*3e
+Text "　オレ、あかり、雅史。"
+WaitKey
+NewLine
+Text "　そして、中学の頃から志保のヤツが加わって、いまのお馴染み４人の顔ぶれになった。"
+WaitKey
+NewLine
+Text "　その４人が揃ってこの高校を受験したのが、今からちょうど一年前。"
+WaitKey
+NewLine
+Text "　大きく遅れを取っていたオレと（それ以上の遅れを取っていた）志保が必死の追い上げを果たし、何とか全員無事に合格した。"
+WaitKey
+NewLine
+Text "　そして迎えた高校生活も、早いものでもうすぐ一年目が終わろうとしている。"
+WaitPage
+EndTextBlk
+
+*3f
+LoadPCM 37
+StartPCM 01 00
+Text "　…ガラガラ。"
+WaitKey
+NewLine
+Text "　そのとき、戸が開いて、山岡センセが現れた。"
+WaitKey
+NewLine
+Text "「よ～し、みんな、席に着けぇ。"
+WaitKey
+Text "出席をとるぞ～っ」"
+WaitKey
+NewLine
+Text "「…じゃあ、さっきの、志保にそう言っとくよ」"
+WaitKey
+NewLine
+ChangeCharacter 02 ff ff
+Text "　雅史はそう言い残して自分の席に戻った。"
+WaitPage
+WaitPCM
+StopPCM
+LoadBG2 01 ff 05
+EndTextBlk
+
+*40
+Text "　そして、ホームルームが始まった。"
+WaitKey
+NewLine
+Text "　いよいよ一年も最後の一ヶ月か、早いもんだ。"
+WaitPage
+Nazo44 00 00
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+EndTextBlk
