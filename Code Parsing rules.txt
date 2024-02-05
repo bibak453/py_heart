@@ -73,25 +73,76 @@ SayNameD{NUMBER} - Probably prints a name
 
 
 
-----------------------------------------------------------------------------------------    {"StartBGM", 0x80},
-FadeBGM
-FadeInBGM
-PauseBGM
-WaitForFadeBGM
-SetNextBGM
+----------------------------------------------------------------------------------------
+BGM specific commands
+StartBGM - Play a bgm music
+FadeBGM - I assume this would FadeOut the music
+FadeInBGM - This is a setting for FadeIn music
+PauseBGM - Causes the bgm to stop.
+WaitForFadeBGM - Waits until the bgm is Faded (to value 0)
+SetNextBGM - When a song is playing and looping it will set the next song to be played also in a loop. That's how I assume it works.
 
-flags should be integers i guess?
-SetFlag - Sets the flag to the value
-FlagAdd (and FlagAdd62) - flag Add will add the ammount specified.
-FlagSub - flag Sub will subtract the ammount.
+SFX specific commands
+LoadPCM - Loads the sound into the memory. With renpy this isn't nedded.
+StopPCM - As the name suggest it stops the sound, but I am not sure for what. The sounds are small and don't appear to be looping.
+StartPCM - Plays the sound.
+WaitPCM - Waits for the sound to complete. This probably is useful for playing specific landmark sounds that shouldnt be skipped.
 
-IfEq = if its equal
-IfNe = if its not equal
-IfGt = if its greater (x > y) - x is what it set and y is what do we compare
-IfLe = if its lower (x < y)
-IfGte = if its greater or equal
-IfLte = if its smaller or equal
-IfBitOn - probably the flag check is if its set to true
-IfBitOff - the same but false
+Renpy Sound Implementation:
+-- play music "mozart.ogg" => StartBGM
+-- play sound "woof.mp3" => StartPCM
+-- stop music fadeout 1.0 => FadeBGM + WaitForFadeBGM + PauseBGM
+-- stop sound => StopPCM
+-- #TODO: Add renpy specific wait function for music completion. Preferably with a modal screen so the user can't skip interaction.
 
-Nazo messages are litterally uknown. Probably error codes or just unlockables.
+BGM and SFX will be hardcoded for the purpose of code integrity.
+
+FLAG SYSTEM:
+
+In renpy i will make it into a dictionary where a hex name will have an int value to manipulate
+
+FlagAdd (and FlagAdd62) - Add specified ammount to the selected flag.
+FlagSub                 - Substract specified ammount to the selected flag.
+SetFlag                 - Sets the flag to the value
+FlagSetBit              - #TODO
+
+Comparing functions:
+x = current value | y = second value to compare
+IfEq        - if its equal                 x == y  
+IfNe        - if its not equal             x != y  
+IfGt        - if its greater               x > y   
+IfLe        - if its lower                 x < y   
+IfGte       - if its greater or equal      x >= y  
+IfLte       - if its smaller or equal      x =< y  
+IfBitOn     - #TODO
+IfBitOff    - #TODO
+
+#TODO: Nazo messages
+Nazo23 0x23
+Nazo26 0x26
+Nazo27 0x27
+Nazo40 0x40
+Nazo44 0x44
+Nazo50 0x50
+Nazo6B 0x6b
+Nazo6C 0x6c
+Nazo70 0x70
+Nazo71 0x71
+Nazo72 0x72
+Nazo74 0x74
+Nazo75 0x75
+Nazo76 0x76
+Nazo79 0x79
+Nazo7A 0x7a
+NazoPCMA6 0xa6
+NazoPCMA7 0xa7
+NazoPCMA8 0xa8
+NazoB4 0xb4
+NazoB8 0xb8
+NazoBA 0xba
+NazoBE 0xbe
+NazoC7 0xc7
+NazoC9 0xc9
+NazoCC 0xcc
+NazoCF 0xcf
+NazoF8 0xf8
