@@ -1,17 +1,37 @@
-import argostranslate.package
-import argostranslate.translate
+#import argostranslate.package
+#mport argostranslate.translate
 import os
 import subprocess
 import sys
+import crossfiledialog
 
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+# GLOBAL
+cwd_directory = ""
 
-install("argostranslate")
+def find_file(cmp):
+    
+    std_path = os.path.join(cwd_directory, cmp)
+    
+    if os.path.isfile(std_path):
+        print("File was found in the script directory.", std_path)
+        return std_path
+    
+    print("File not found in the script directory.")
+    print("Opening file dialog...")
+    
+    file = crossfiledialog.open_file(title="Pick " + cmp, start_dir=cwd_directory)
+    
+    if os.path.isfile(file):
+        if cmp.upper() in file or cmp.lower() in file:
+            print("File found in:", file)
+            return file
+
+    return None
 
 def get_directory():
-    return ""
-    
+    return os.path.dirname(os.path.realpath(__file__))
+
+"""
 def download_lang(from_code, to_code):
     argostranslate.package.update_package_index()
     
@@ -23,6 +43,7 @@ def download_lang(from_code, to_code):
         )
     )
     argostranslate.package.install_from_path(package_to_install.download())
+"""
 
 """
     extract_assets(path):
@@ -42,18 +63,23 @@ def extract_scn(path):
 def parse_scn():
     print("Parsing scenario to Renpy format...")
 
-def translate(txt, verbose = False):
-    translated = argostranslate.translate.translate(txt, from_code, to_code)
-    if verbose:
-        print(txt, " ==>", translated)
-    return translated
+def translate(txt):
+    #translated = argostranslate.translate.translate(txt, from_code, to_code)
+    return txt
 
 def main():
-    download_lang("jp", "en")
+    global cwd_directory
+    #download_lang("jp", "en")
     
     cwd_directory = get_directory()
-    lvns3dat_path = os.path.join(cwd_directory, "lvns3dat.pak")
-    lvns3scn_path = os.path.join(cwd_directory, "lvns3scn.pak")
+    
+    lvns3dat_path = find_file("lvns3dat.pak")
+    lvns3scn_path = find_file("lvns3scn.pak")
+    
+    if lvns3dat_path is None or lvns3scn_path is None:
+        print("One or more files were picked uncorrect.")
+        print("Exiting...")
+        exit()
     
     extract_assets(lvns3dat_path)
     extract_scn(lvns3scn_path)
