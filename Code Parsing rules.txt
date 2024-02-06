@@ -121,6 +121,26 @@ IfLte       - if its smaller or equal      x =< y
 IfBitOn     - #TODO
 IfBitOff    - #TODO
 
+It's genius. So the If statements as they do they check if the statement is true.
+If its true it would skip the specified bytes to the next space.
+Example:
+*07
+StartBGM 05
+Push2D 00 20 08
+IfNe 1e 03 0c       # if the statement is true it will skip 0c bytes (12 positions)
+IfLe 14 0e 08       # This command will be executed if the if statement returned False
+IfGte ae 05 04
+Jump 01 43 01
+IfLe ab 2e 10       # It will jump to here if it was true
+IfNe 1e 07 0c
+IfLe 14 1e 08
+IfGte ae 05 04
+Jump 01 47 01
+IfNe ab 3f 0c       # Then here and so on...
+IfNe 0c 3f 08
+IfLe 17 16 04
+Jump 04 54 01
+
 it seems that if statements are used as multiple check
 When an if statement is followed by an if statement then they should be evaluated together (&)
 Any command that folows an if statement is the command that should be executed if the statement is true
