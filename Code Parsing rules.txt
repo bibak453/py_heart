@@ -25,6 +25,10 @@ In TEXT files there are TextBlocks that are defined:
 
 EndTextBlk serves as the end of a block. Basically a return command in renpy.
 
+in renpy converted files i think the best way to keep the same scheme would be to use global and local labels.
+
+A global label would hold local labels based on the DATA files.
+
 ---------------------------------------------------------------------------
 
 -- Text "{Message}"
@@ -116,6 +120,35 @@ IfGte       - if its greater or equal      x >= y
 IfLte       - if its smaller or equal      x =< y  
 IfBitOn     - #TODO
 IfBitOff    - #TODO
+
+it seems that if statements are used as multiple check
+When an if statement is followed by an if statement then they should be evaluated together (&)
+Any command that folows an if statement is the command that should be executed if the statement is true
+it doesnt appear to have else statements so after executing the if statement if true then it will go to the next command unless a jump command was used.
+
+#TODO: Jump command is confussing. In most of the times it looks like a simple jump but also like it actually returns like calling a label in renpy
+
+
+
+
+DisplayMessage - this is used as calling a label because we expect to get back to that point of execution. It will return with EndTextBlk
+JumpBlk - This command is used to jump inside the DATA file. It will return based on End20.
+Jump - is used to jump between DATA files and DATA block. We specify the 2 hex value (0a 87 => filename) and the third is the block to execute. It also returns of End20.
+SameBlkJump - thats a very weird jump... It will jump into an incremented scenario in DATA file. So when the current scenario would be 2 and the command has 10 as a parrametter then the jump would go to the 12 block inside the DATA file. Why? But this does not work with some scenario files... Maybe it introduces some shifting in the current block? like adding just jumping a line ahead. It is only used in DATA files so it's confusing. For the most uses that exists it matches the idea of jumping to a scenario block. Only one doesn't match as a scenarion block doesnt exist with the specified number...
+#TODO: I will have to create a json tree for explaining every command and path that is possible with the scripts.
+
+Example:
+*0a
+IfNe ad 06 01
+Return2D
+IfNe ab 3d 08
+IfNe 24 06 04
+Jump 07 55 01
+IfNe ab 3e 08
+IfNe 24 08 04
+Jump 07 5a 01
+Return2D
+End20
 
 #TODO: Nazo messages
 Nazo23 0x23
