@@ -1,0 +1,38 @@
+str 00  00  01
+jmp 00  33  01
+p2f 00  33  02
+jmp 00  20  01
+p2d 00  20  02
+if...
+jmp 00  01  02
+cho 22 03 23 00 24 08 25 10
+----------------------------------------
+# 22 is the txt_blk
+# 03 is how many choices 
+
+# 23 is txt_blk as the choice...
+# 00 is likely a return statement value
+
+# 24 is txt_blk as the choice...
+# 08 is likely a return statement value
+
+# 25 is txt_blk as the choice...
+# 10 is likely a return statement value
+----------------------------------------
+n6b - choice A
+fad 14  02
+jmp 00  02  01  ->  jmp 00  05  01
+n6b - choice B
+fad 14  01
+jmp 00  03  01  ->  jmp 00  05  01
+n6b - choice C
+fad 14  03
+jmp 00  04  01  ->  jmp 00  05  01
+    00  05  01
+r2d
+    00  20  02
+p2d 00  20  03
+if...
+jmp 03  03  01
+
+there is logic. yeay.
