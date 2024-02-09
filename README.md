@@ -15,7 +15,7 @@ In the DATA files we are defining scenarios like this:
 -- End20
 
 DisplayMessage invoked the text block from the TEXT file.
-End20 probably serves as a return function or end funtion. Need to check.
+End20 probably serves as a return function or end function. Need to check.
 
 In TEXT files there are TextBlocks that are defined:
 -- *00
@@ -221,6 +221,27 @@ Parsing instructions:
 - The game as intended by the 2. point it will contain the jappannese version as default and no human translation will be provided. But there will be either AI translation service run in python or a use of a python packages that are able to translate jappannese to english. #TODO: When the simple parsing is already inplemented I will need to test for accuracy between diffrent types of translation. I want to avoid using online services as there can be a request limit that would not work the best for the future user.
 - The scope of the project would be nice to widen in the future by including the PSE version of the game. This game already possess voice acting so that could help but the main problem would be merging the old script with the new one as the PSE version has new scenarios included and removed the +18 stuff. #TODO: If I ever have time to acomplish more for this project I will create a specific version of this to include the minigames, new scenarios and also merge the old scenarios. I think i could use AI tools for image generation to create additional CG of HVisuals for the characters that are included in the PSE version, but that's really a stretch.
 
+
+# Ease of use and steps to reproduce
+1. Be rich.
+2. Import **To Heart** from Japan or already possess a copy of the game.
+3. Proceed only if your copy of the game is legal and it's compatible. This will only work for the release of 1996 for Windows PC.
+4. Rip audio files using a CD reaper tool:
+* Windows
+    -a
+    -b
+    -c
+* Linux
+    -a
+    -b
+    -c
+* MacOs
+    - I'm sorry I can't really help here and test If I don't have a mac machine. If someone want's to provide steps and software please let me know so I can include it here.
+5. Place the audio files under **ASSETS/BGM**
+6. If you skip step 4 and 5 then game will not have music.If you want to do this process manually then you need to name the songs from zero to the last number written in hex values. The files should be placed in **game/AUDIO/BGM/**
+7. If you missplaced the order of the songs before running the main script then the BGM music will not be accurate to the original (it could play a happy song when there is a tragic flashback). So to prevent that ensure that the list of songs are exactly in the same order as on the cd.
+6. Find files: **LVNS3DAT.PAK** and **LVNS3SCN.PAK** and place them into **ASSETS/**
+
 # Naming convention
 
 ```python
@@ -238,11 +259,11 @@ def scn_filename(f):
 ```
 
 
--**"SCN"** and **"TXT"** labels with the same filename will be places under one file for ease of use.
+-**SCN** and **TXT** labels with the same filename will be places under one file for ease of use.
 
 -Functions name will be as closely to the original, example
 
--All files decompressed from the **"LVNS3DAT.PAK"** file will retain it's original naming.
+-All files decompressed from the **LVNS3DAT.PAK** file will retain it's original naming.
 
 #### FOLDER structure:
 IMG
@@ -270,18 +291,10 @@ If a command has **\*** then it means it is explained in this doc.
 ```
 *Choice
 *ChoiceSetup
-DateSettingNoCalendar
 *DisplayMessage
 *DisplayMessageAndClear
-Effect
-End20
-EndFF
-FadeBGM
-FlagAdd
-FlagAdd62
-FlagSetBit
-FlagSub
-GameOver
+*LoadVisual
+
 *IfBitOff
 *IfBitOn
 *IfEq
@@ -290,12 +303,37 @@ GameOver
 *IfLe
 *IfLte
 *IfNe
-Jump
-JumpBlk
-LoadBG
-LoadCharacter
+
+*Jump
+*JumpBlk
+*Push2D
+*Push2F
+*Return2D
+*Return2F
+*SameBlkJump
+
+*LoadBG
+*LoadCharacter
+
+*TimeSetting
+*DateSettingNoCalendar
+
+Effect
+
+End20
+EndFF
+
+FadeBGM
+
+FlagAdd
+FlagAdd62
+FlagSetBit
+FlagSub
+
+GameOver
+
 LoadPCM
-LoadVisual
+
 Nazo23
 Nazo26
 Nazo40
@@ -305,13 +343,9 @@ Nazo6C
 Nazo70
 Nazo79
 Nazo7A
+
 NazoPCMA6
 PauseBGM
-*Push2D
-*Push2F
-*Return2D
-*Return2F
-SameBlkJump
 SetFlag
 SetNextBGM
 StartBGM
@@ -319,7 +353,7 @@ StartEnding
 StartPCM
 StopPCM
 Text        #For some unknown reason this is present in one of the DATA files (00F1, 00F2, 00F3)
-TimeSetting
+
 TitleDisplay
 VariableChoice
 WaitForFadeBGM
@@ -332,26 +366,40 @@ WhiteIn
 if a command has **\*** then it means it is explained in this doc.
 
 ```
-Brighten
-ChangeCharacter
+*Text
 CharacterDrawSpeed
-ClearAndLoadCharacter
-ClearCharacter
-DateSetting
-Effect
+*WaitKey
+*WaitPage
+*NewLine
+Wait
 EndTextBlk
-FadeBGM
-FadeInBGM
-LoadBG
-LoadBG2
-LoadCharacter
-LoadCharacterAndBg
-LoadCharacterC2
-LoadHVisualScene
-LoadPCM
-LoadThreeCharacters
-LoadVisual
-LoadVisualScene
+
+*LoadCharacter
+*LoadCharacterC2
+*LoadCharacterAndBg
+*LoadThreeCharacters
+*ChangeCharacter
+*ClearAndLoadCharacter
+*ClearCharacter
+
+*LoadBG
+*LoadBG2
+*LoadVisual
+*LoadVisualScene
+*LoadHVisualScene
+
+*DateSetting
+
+Effect
+SpecialEffect
+SepiaEffect
+
+Brighten
+WhiteIn
+WhiteOut
+
+Vibrato
+
 Nazo40
 Nazo44
 Nazo70
@@ -371,95 +419,223 @@ NazoC9
 NazoCC
 NazoCF
 NazoF8
+
 NazoPCMA6
 NazoPCMA7
 NazoPCMA8
-NewLine
-PauseBGM
+
 SayNameD1
-SayNameD2
-SayNameD3
-SayNameD4
-SayNameD5
-SayNameD6
-SayNameD8
-SayNameD9
-SayNameDA
-SayNameDB
-SayNameDC
-SayNameDD
-SayNameDF
-SayNameE0
-SayNameE1
-SayNameE2
-SayNameE3
-SayNameE4
-SayNameE6
-SayNameE7
-SayNameE8
-SayNameE9
-SayNameEA
-SayNameEB
-SayNameED
-SayNameEE
-SayNameEF
-SayNameF0
-SayNameF1
+...
 SayNameF2
-SepiaEffect
+
 SetTextOffset
-SpecialEffect
+
 StartBGM
-StartPCM
-StopPCM
-Text
-UnknownOpcode   # TODO: need to investigate 0610.SCN.TEXT, 0793.SCN.TEXT
-Vibrato
-Wait
+PauseBGM
+FadeBGM
+FadeInBGM
 WaitForFadeBGM
-WaitKey
+
+StartPCM
+LoadPCM
+StopPCM
 WaitPCM
+
+UnknownOpcode   # TODO: need to investigate 0610.SCN.TEXT, 0793.SCN.TEXT
+```
+
+# Calendar Related Commands
+
+# Handling "DateSettingNoCalendar" Command
+
+```c
+    case 0x32: /* 日付を設定する */
+        dprintf((stderr, "[日付設定(カレンダー無)(%02x)]\n", c[1]));
+        if (c[1] == 0xf0) {
+            state->flag[TOHEART_FLAG_DATE] = 3; /* 日付初期化 */
+        } else {
+            state->flag[TOHEART_FLAG_DATE] ++;  /* 一日追加 */
+        }       
+        state->flag[TOHEART_FLAG_WEEKDAY] = 
+            (state->flag[TOHEART_FLAG_DATE] + 5) % 7;
+        c+=2;   
+        break;
+```
+
+This command is used at init of the game with the F0 passed as the parameter. It calculated what day it is. Nice
+
+# Handling "TimeSetting" Command
+
+```c
+ case 0x33: /* 時刻を設定する */
+        dprintf((stderr, "[時刻設定(%02x)]\n", c[1]));
+
+        /* 行動フラグ初期化。ここで良いのかどうかは不明 */
+        state->flag[TOHEART_FLAG_EVENT_DONE] = 0;
+        state->flag[TOHEART_FLAG_IDOU] = 0;
+
+        if (c[1] >= 0xf0) {  
+            /* 表示無し更新 */
+            state->flag[TOHEART_FLAG_TIME] = c[1] - 0xf0;
+        } else {  
+            /* 表示有り更新 */
+            int i;
+            int start;
+            
+            if (state->fast_clock) {
+                start = c[1];
+            } else {
+                start = state->flag[TOHEART_FLAG_TIME];
+            }
+            
+            state->flag[TOHEART_FLAG_TIME] = c[1];
+            for (i=start; i<c[1]+1;i++) {
+                clock_anim[i].type = LVNS_ANIM_IMAGE_ADD;
+            }
+            clock_anim[i].type = LVNS_ANIM_NONE;
+            LvnsAnimation(lvns, clock_anim + start);
+        }
+
+        c += 2;
+        break;
+```
+
+In this command we set the time of the clock to a specific time.
+When the command is invoked it will also show a clock animation from the current point to the end point. We also save the flags because they are relevant.
+
+# Handling "DateSetting" Command
+
+```c
+case 0xf5:
+        dprintf((stderr, "[日付更新(カレンダー有)(%02x/%02x)]\n", c[1],
+                 state->flag[TOHEART_FLAG_DATE]));
+		if (!history_mode) {
+			int effect_state;
+			if (state->fast_calendar) {
+				effect_state = 16;
+			} else {
+				effect_state = 0;
+			}
+
+			if (c[1] > state->flag[TOHEART_FLAG_DATE]) {
+				state->calendar_day = c[1];
+				init_calendar(lvns);
+				set_calendar(lvns, state->flag[TOHEART_FLAG_DATE]++, 209);
+				set_calendar(lvns, state->flag[TOHEART_FLAG_DATE], 211);
+				LvnsAnimation(lvns,  calendar_anim);
+				while (!calendar(lvns, &effect_state));
+			}
+		}
+		c += 2;
+		break;
+```
+
+Here is the same situation. We have some flags set for the current date that it should be and we create an animation with the callendar.
+
+# Narrative Commands
+
+```
+Text "　よく見れば、やっぱり理緒ちゃんだ。"
+```
+
+The **Text** command is used to display dialogue to the screen.
+In renpy the equivalent of say.
+We will only need the narrator class as the nvl kind.
+
+The text is enclosed with double quotes.
+
+Together with this command we also use other commands:
+
+```
+Wait 2f
+```
+
+The **Wait** command is used for halting user interraction for specified ammount. This probably is tied to frame count.
+
+```
+WaitKey
+```
+
+The **WaitKey** command is used as the user interaction method.
+In renpy the say statement already does that funtion.
+
+```
 WaitPage
-WhiteIn
-WhiteOut
 ```
 
-# Handling "Push2F", "Push2D", "Return2F" and "Return2D"
+The **WaitPage** command is used as the user interaction method that also resets the current screen.
+In renpy this would be nvl clear. As it will clear the "page".
 
-The "Push" part of these commands are basically a dynamic jumping solution:
-
-003A.SCN.DATA
 ```
-*00
+NewLine
+```
+
+The **NewLine** command is used to start at a new line.
+Renpy say statement already always start in a new line. This is useful when we want to write multiple lines in one paragraph continuisly.
+
+```
+EndTextBlk
+```
+
+The **EndTextBlk** command is used to mark the end of the Text block. It works like a return statement.
+
+
+
+# Jumping Commands
+
+```
+Jump 02 23 01
+```
+
+**Jump** is a simple jump statement.
+The first two parameters are combined into a text file and the third parameter is the Scene block to execute.
+Jump does not return.
+
+```
+JumpBlk 0f
+```
+
+**JumpBlk** is a jump statement for jumping to a specific Scene block in the same file.
+
+```
+SameBlkJump 04
+```
+
+**SameBlkJump** is a command that will increment in the current block in the same file efectively jumping in the same file by incrementing it.
+
+```
+DisplayMessage 01
+```
+
+**DisplayMessage** is a call statement to the text block of the same filename.
+After calling it we return to the previous point of execution.
+
+RENPY IMPLEMENTATION (func.rpy):
+```renpy
+label DisplayMessage(txt_blk, clear = False):
+    call expression "txt_blk" #TODO: Check syntax
+
+    if clear:
+        # DisplayMessageAndClear implementation
+        nvl clear
+    return
+```
+
+```
 Push2F 00 3a 02
-IfNe a6 01 04
-Jump 00 20 01
 Push2D 00 20 01
-Jump 00 a4 01
-End20
 ```
-
-In this SCN block we basically save:
+**Push2F** and **Push2D** are functions that saves pointers to Scene blocks.
 
 ```
-2F: "003A.SCN.DATA" SCN_BLK "02"
-2D: "0020.SCN.DATA" SCN_BLK "01"
+Return2F
+Return2D
 ```
 
-And when **Return2D** or **Return2F** are used they will jump back to the place of memory.
+**Return2D** and **Return2F** are functions to **Jump** to the saved pointer location.
 
-This commands is only permited in the DATA files.
+# Logic Resolution
 
-# Handling "If" statements
-
-If an **"If"** statement turns to be true, then we skip the specified ammount of bytes in the file.
-
-**IfNe** 00 06 01:
-- **00** - adress the value resides
-- **06** - value to compare to
-- **01** - number of bytes to skip
-
-Example:
 ```
 *0a
 IfNe ad 06 01   # if true---
@@ -474,9 +650,14 @@ Return2D                    <-------------------------
 End20
 ```
 
+If an **If** statement turns to be true, then we skip the specified ammount of bytes in the file.
+
+**IfNe** 00 06 01:
+- **00** - adress the value resides
+- **06** - value to compare to
+- **01** - number of bytes to skip
 
 ```
-x = current value | y = second value to compare
 IfEq        - if its equal                 x == y  
 IfNe        - if its not equal             x != y  
 IfGt        - if its greater               x > y   
@@ -485,50 +666,15 @@ IfGte       - if its greater or equal      x >= y
 IfLte       - if its smaller or equal      x =< y  
 IfBitOn     - #TODO
 IfBitOff    - #TODO
-```
 
-# Handling "DisplayMessage" Command
-
-**"DisplayMessage"** Command is basically calling the text and expecting to return to the previous point of execution.
-
-RENPY IMPLEMENTATION (func.rpy):
-```renpy
-label DisplayMessage(txt_blk, clear = False):
-    call expression "txt_blk"
-
-    if clear:
-        nvl clear
-    return
-```
-
-The **"clear"** boolean is for handling **"DisplayMessageAndClear"** command.
-When clear is True then we clear the screen after returning from the **"txt_blk"**.
-
-
-```renpy
-label SCN_0005_DAT_01: 
-    call DisplayMessage("SCN_0005_TXT_01")
+x = current value | y = second value to compare
 ```
 
 
-```
-*01
-DisplayMessage 00
-DisplayMessage 01
-DisplayMessage 02
-...
-DisplayMessage 3e
-DisplayMessage 3f
-DisplayMessage 40
-Return2D
-End20
-```
+# Simple Choice resolution
 
-# Handling "Choice" Command
-
-02C8.SCN.DATA
 ```
-Choice 01 02 02 05 03 00
+Choice 01 02 03 05 04 00
 Nazo6B
 Jump 01 ae 01
 Nazo6B
@@ -540,9 +686,8 @@ End20
 
 In this example this Choice takes 6 parameters:
 
-Choice **01** 02 02 05 03 00 | is used as displaying the leading txt_blk containing the question for the choice.
+**01** is the question contained in the Text block.
 
-02C8.SCN.TEXT
 ```python
 *01
 Text "「……」"
@@ -555,14 +700,12 @@ NewLine
 EndTextBlk
 ```
 
-Choice 01 **02** 02 05 03 00 | is declaring how many choices we have
+**02** is the number of choices available.
 
-Choice 01 02 **02** 05 03 00 | is pointing at the first choice expressed with a txt_block.
-
-02C8.SCN.TEXT
+**03** is the text block of the first question.
 
 ```python
-*02
+*03
 SetTextOffset 06
 CharacterDrawSpeed 00
 Text "Ａ、行く。"               # "A, I'll go."
@@ -570,29 +713,13 @@ NewLine
 EndTextBlk
 ```
 
-Choice 01 02 02 **05** 03 00 | is probably (#TODO: CHECK!!!) a count of many bytes we need to skip in the script. In this case:
+**05** is the ammount of bytes to skip if we pick option A.
 
-02C8.SCN.DATA
+**04** is the text block of the second question.
 
-```
-Choice 01 02 02 05 03 00-----------
-Nazo6B                            |
-Jump 01 ae 01                     |
-Nazo6B  <--------------------------
-SetFlag a6 01
-FlagAdd 14 00
-Jump 01 ad 01
-End20
-```
-
-We skip 5 bytes to the second **Nazo6B**. It is still unclear what is this command, but for now I will assume it's for error checking (#TODO: CHECK).
-
-Choice 01 02 02 05 **03** 00 | is pointing at the second choice expressed with a txt_block.
-
-02C8.SCN.TEXT
 
 ```python
-*03
+*04
 SetTextOffset 06
 CharacterDrawSpeed 00
 Text "Ｂ、行かない。"           # "B, I won't go."
@@ -600,21 +727,331 @@ NewLine
 EndTextBlk
 ```
 
-Choice 01 02 02 05 03 **00** | is probably (#TODO: CHECK!!!) a count of many bytes we need to skip in the script. In this case:
+**00** is the ammount of bytes to skip if we pick option B
 
-```
-Choice 01 02 02 05 03 00-----------
-Nazo6B             <---------------
-Jump 01 ae 01
-Nazo6B
-SetFlag a6 01
-FlagAdd 14 00
-Jump 01 ad 01
-End20
-```
-
-We skip 0 bytes to the first **Nazo6B**.
+I think the **Nazo6B** are used either as file padding or Choice Jump Checking. Anyway they are helpful for debugging even if they do nothing.
 
 # Handling "VariableChoice" Command
 
-# Handling "ChoiceSetup" Command
+(#TODO: Don't know how is this working yet.)
+
+This command resets 12 values:
+
+toheart.c
+```c
+case 0x2c:
+		dprintf((stderr, "[選択肢前位置()]\n"));
+        {
+            int i;
+            LvnsSetSavePoint(lvns, &lvns->selectpoint);
+            memcpy(state->flag_select, state->flag, sizeof state->flag);
+            for (i=0; i<12; i++)
+                state->flag[TOHEART_FLAG_VSELECT_MSG + i] = 0;
+        }
+        c++;
+        break;
+```
+This is used with the **VariableChoice** command.
+
+# Music Related commands
+
+NOTE:This game uses the CDROM to read song data that is written to the CD.
+The legit way would be to rip them from the original CD if you own it.
+In a perfect world this is possible, but I think in the end I will create a simple script for aquairing the OST from internet.
+
+# Handling "StartBGM" Command
+
+The **StartBGM** takes one argument that is the number of the song and starts it will full volume without fading in. It loops.
+
+FadeBGM - Fades the song out right after calling it.
+
+WaitForFadeBGM - This function will wait until the song has stopped playing while fading out.
+
+PauseBGM - Pause the BGM without a delay.
+
+you use these free commands together:
+
+```
+FadeBGM
+WaitForFadeBGM
+PauseBGM
+```
+I will turn it into one function.
+
+FadeInBGM - Takes one parameter that is the number of the song. It fades the song up and its looping.
+
+SetNextBgm
+
+In standard the song is always looping.
+
+When chaging the song the current song will stop looping and the next will continue to loop.
+
+# Handling "StartPCM" Command
+
+LoadPCM - Loads the sound into the memory in renpy this is not needed. Takes one parameter
+
+```c
+    case 0xa0:		/* PCMスタート? */
+        dprintf((stderr, "[A0 PCM読み込み(%02d)]\n", c[1]));
+		if (!history_mode)
+			LvnsLoadSound(lvns, "TH_VD%02d.P16", c[1]);
+        c += 2;
+        break;
+```
+
+StopPCM
+StartPCM
+WaitPCM
+
+# Graphic Related Commands
+
+```c
+void
+LvnsUndispText(Lvns *lvns)
+{
+	LvnsFlip(lvns, True); // ����Ʊ���Τ����
+	lvns->text_mode = False;
+	if (lvns->skip) {
+		lvns->latitude = 16;
+		LvnsDispWindow(lvns);
+	} else {
+		LvnsLighten(lvns);
+	}
+}
+```
+
+This is called when wanting to show the characters. Basically a nvl hide window command
+
+# Handling "LoadCharacter" command
+
+```c
+void
+ToHeartLoadCharacter(Lvns *lvns, int no, int pos)
+{
+    ToHeartState *state = (ToHeartState *)lvns->system_state;
+    char name[100];
+
+    if (no == 0xffff) {
+        ToHeartClearCharacter(lvns, pos);
+        return;
+    }
+
+    /* ���������ѽ��� */
+    if ((no >> 8) == 0) {
+        if ((state->flag[TOHEART_FLAG_AKARI] & 0x01)) { /* ȱ���ѹ� */
+            no |= 0x80;
+        }
+        no |= 0x100;
+    } 
+    sprintf(name, "C%04x.LF2", no);
+
+	lvnsimage_delete(state->character[pos]);
+	state->character[pos] = LvnsLoadImage(lvns, name, NULL);
+	set_colflag(lvns, pos);
+	lvns->character_no[pos] = no;
+}
+```
+
+```c
+		if (!history_mode) {
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]);
+		}
+```
+
+When Calling LoadCharacter we pass 3 parameters:
+
+```
+LoadCharacter 02 04 03
+```
+
+We shift the second parameter (04) by 8 bits and perform a bitwise OR operation with the third parameter (03). This is a part of the filename ("C0000.png")
+
+The first parameter is used for positioning - 00 for left, 01 for center, 02 for right. I only assume this, but it could be a difrent asignment. #TODO: CHECK
+
+This action Loads the character but does not affect the screen.
+
+For clever sprite management I will have a function to keep and register what sprite is on what position.
+
+# Handling "ChangeCharacter"
+
+```c
+    case 0xc1:		/* キャラクタ変更 */
+		dprintf((stderr, "[キャラクタ変更(%s, C%02x%02x.LF2)]\n", 
+				 posstr[c[1]], c[2], c[3]));
+		if (!history_mode) {
+			LvnsUndispText(lvns);
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]);
+			LvnsDisp(lvns, LVNS_EFFECT_FADE_MASK);
+		}
+		c += 4;
+        break;
+```
+
+We hide the nvl window then we load the new character sprite and then show the windows again.
+
+NOTE: There is a case for **LoadCharacterC2** that appears to basically the same thing as the **ChangeCharacter** do.
+And the **LoadCharacterC2** is in the code only one time mentioned. So it seems that it's probaly a weird thing. Need to replace that and investigate. 
+
+# Handling "ClearCharacter"
+
+This function hides the character with the specified parameter on the screen 
+
+# Handling "ClearAndLoadCharacter"
+
+```c
+    case 0xc3:
+		dprintf((stderr, "[全消去後キャラ表示(%s, C%02x%02x.LF2)]\n", 
+				 posstr[c[1]], c[2], c[3]));
+		if (!history_mode) {
+			LvnsUndispText(lvns);
+			ToHeartClearCharacter(lvns, 3);
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]);
+			LvnsDisp(lvns, LVNS_EFFECT_FADE_MASK);
+		}
+		c += 4;
+        break;
+```
+
+Here we do basically the same thing as Load Character but with calling the ClearCharacter with parameter 3 so it will wipe any additional characters present. I guess it's only used when only one character needs to be in focus after a group or even changing position of the character.
+
+# Handling "LoadCharacterAndBg"
+
+```c
+    case 0xc4:		/* 背景付き画面ロード */
+		dprintf((stderr, 
+				 "[背景付きキャラ変更(%s, C%02x%02x.LF2, S%02d?.LF2, %02x, %02x)]\n",
+				 posstr[c[1]], c[2], c[3], c[4], c[5], c[6]));
+		if (!history_mode) {
+			LvnsUndispText(lvns);
+			LvnsClear(lvns, text_effect(c[5]));
+			ToHeartLoadBG(lvns, c[4]);
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]);
+			LvnsDisp(lvns, text_effect(c[6]));
+		}
+		c += 7;
+        break;
+```
+
+Here is almost the same story - We hide the nvl window we call a new scene and we display a character while also clearing the previous data - but with some text_effects that I didn't study yet. I will replicate it by looking at it visually rather than looking trhough the xlvns code base.
+#TODO: implement text_effects if needed
+
+In renpy when calling for a new scene we don't have to clear the sprites manually because they will just dissapear.
+#TODO: To renpy implementation add the reset of the Character Positioning system config so it works like in the original.
+
+This command takes a lot of parameters so let's break it down:
+
+```
+LoadCharacterAndBg  02      1e      09      14      0b      00
+c[0]                c[1]    c[2]    c[3]    c[4]    c[5]    c[6]
+```
+
+```c
+...
+		if (!history_mode) {
+			LvnsUndispText(lvns);                           
+			LvnsClear(lvns, text_effect(c[5]));             // 0B
+			ToHeartLoadBG(lvns, c[4]);                      // 14 
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]); // (1E<<8) | 02
+			LvnsDisp(lvns, text_effect(c[6]));              // 00
+		}
+...
+```
+
+It seem's that this will be quite complex function depending on what animations are set. Probably the text_effect are the transitions. Not completly sure.
+
+# Handling "LoadThreeCharacters" command
+
+```
+LoadThreeCharacters 00      1c      01      02      ff      ff      01      ff      ff
+c[0]                c[1]    c[2]    c[3]    c[4]    c[5]    c[6]    c[7]    c[8]    c[9]
+```
+
+This also is a long command, but let's break it down:
+
+```c
+    case 0xc6:  /* 3枚ロード */
+		dprintf((stderr, "3キャラ同時表示\n"));
+		LvnsUndispText(lvns);
+		if (!history_mode) {
+			ToHeartLoadCharacter(lvns, c[2]<<8|c[3], c[1]); // 1C << 8 | 01 00
+			ToHeartLoadCharacter(lvns, c[5]<<8|c[6], c[4]); // FF << 8 | FF 02
+			ToHeartLoadCharacter(lvns, c[8]<<8|c[9], c[7]); // FF << 8 | FF 01
+			LvnsDisp(lvns, LVNS_EFFECT_FADE_MASK);
+		}
+		c += 10;
+        break;
+```
+
+Hides the nvl window and displays each character with the parameters one after another. Could also be 3 separate show screens. #TODO: Check how it works in the game.
+
+# Handling "LoadBG" and "LoadBg2"
+
+```
+LoadBG 01
+Effect 05
+Nazo23 1e
+```
+
+LoadBG I think prepares an image to be loaded and using the Effect Command we apply a transition.
+And again the Nazo23 a new finding - it also does nothing. At least that's what the xlvns says. I think it provides timing for the effect function. #TODO: Look into it for most part it takes value like 0x1e(30), 0x32(50), 0x64(100), 0xc8(200),  I assume thats frame time.
+
+```c
+    case 0xbd:		/* 背景ロードその2 */
+		dprintf((stderr, "[背景ロード2 (%d/%d, %02x, %02x)]\n",
+				 c[1]/50, c[1]%50, c[2], c[3]));
+		if (!history_mode) {
+			LvnsUndispText(lvns);
+			LvnsClear(lvns, text_effect(c[2]));
+			ToHeartLoadBG(lvns, c[1]);
+			LvnsDisp(lvns, text_effect(c[3]));
+		}
+		c += 4;
+        break;
+```
+Here is the code for handling the "LoadBg2". It seems they compressed 3 commands into one. Which is clever.
+
+So we fade the nvl windows use an effect on the screen that is a transition then then load the BG into memory and transout with the specified transition. I guess the standard way would be to just fade to black with transitions. #TODO: need to check for behavior in game.
+
+
+# Handling "LoadVisualScene" and "LoadHVisualScene" Command
+
+This command takes one parameter that is the number of the visual in hex.
+
+```c
+void
+ToHeartLoadVisual(Lvns *lvns, int no)
+{
+    ToHeartState *state = (ToHeartState *)lvns->system_state;
+    lvns->bg_type = LVNS_VISUAL;
+    lvns->bg_no   = no;
+    if (no == 0) {
+        lvnsimage_clear(lvns->background);
+    } else {
+        /* あかりの髪型処理… */
+        if ((no == 0x11 || no == 0x13) && 
+            (state->flag[TOHEART_FLAG_AKARI] & 0x01)) {
+            no = 0x12;
+        }
+        /* レミィパンティ */
+        if (no == 0x80) {
+        }
+        LvnsLoadBackground(lvns, "V%02x.LF2", no);
+    }
+    ToHeartClearCharacter(lvns, 3);
+}
+```
+This code checks for special condition (Akari hair change) and calls the ClearCharacter function with the parameter 3 (to get read of every character). In renpy not necessary as calling a new scene will always clear the characters and other sprites.
+
+RENPY IMPLEMENTATION:
+
+```renpy
+label LoadVisual(visual_type = True, num='00'):
+    if visual_type:
+        scene expression "V[num].png"
+        with blinds
+    else
+        scene expression "H[num].png"
+        with blinds
+
+    return
+```
