@@ -1,141 +1,21 @@
 Scenario are split into TEXT files and DATA files.
 The DATA files contain the flow of the TEXT files.
 
-In the DATA files we are defining scenarios like this:
--- *01
--- DisplayMessage 00
--- DisplayMessage 01
--- DisplayMessage 02
--- ...
--- DisplayMessage 44
--- DisplayMessage 45
--- IfLe 15 2e 04
--- Jump 02 22 01
--- Jump 02 23 01
--- End20
-
-DisplayMessage invoked the text block from the TEXT file.
-End20 probably serves as a return function or end function. Need to check.
-
-In TEXT files there are TextBlocks that are defined:
--- *00
--- ...
--- ...
--- EndTextBlk
-
 EndTextBlk serves as the end of a block. Basically a return command in renpy.
 
 in renpy converted files i think the best way to keep the same scheme would be to use global and local labels.
 
 A global label would hold local labels based on the DATA files.
 
----------------------------------------------------------------------------
-
--- Text "{Message}"
--- WaitKey
--- NewLine
-
-This block will display a text - game doesn't display who is speaking
-
-Example:
--- Text "「わーってるよ！」"
--- WaitKey
--- NewLine
-
-WaitPage - this is probablt the equivelent of nvl clear in renpy - it will display every line until a new page should be shown where it should be cleared.
-WaitKey - This probably waits for key input - in renpy this wont be parsed
-Wait - this is a function to wait until the specified ammount. in the lvns it probably is tied to gramerate.
-NewLine probably is an explicit command to print the characters in a new line and if not added it will print characters in the last cursor position. Need to check.
-
-----------------------------------------------------------------------------------------
-
--- Text "「ふぅ、ふぅ…。"
--- WaitKey
--- SayNameD8
--- SayNameD9
--- SayNameDA
--- SayNameDB
--- SayNameDC
--- SayNameDD
--- Text "ちゃん、お願いだから、寝坊しないで」"
--- WaitKey
-
-SayNameD{NUMBER} - Probably prints a name
-----------------------------------------------------------------------------------------
-
-
-
-----------------------------------------------------------------------------------------
-
-
-
-----------------------------------------------------------------------------------------
-
-
-
-----------------------------------------------------------------------------------------
-
-
-
-----------------------------------------------------------------------------------------
-BGM specific commands
-StartBGM - Play a bgm music
-FadeBGM - I assume this would FadeOut the music
-FadeInBGM - This is a setting for FadeIn music
-PauseBGM - Causes the bgm to stop.
-WaitForFadeBGM - Waits until the bgm is Faded (to value 0)
-SetNextBGM - When a song is playing and looping it will set the next song to be played also in a loop. That's how I assume it works.
-
-SFX specific commands
-LoadPCM - Loads the sound into the memory. With renpy this isn't nedded.
-StopPCM - As the name suggest it stops the sound, but I am not sure for what. The sounds are small and don't appear to be looping.
-StartPCM - Plays the sound.
-WaitPCM - Waits for the sound to complete. This probably is useful for playing specific landmark sounds that shouldnt be skipped.
-
-Renpy Sound Implementation:
--- play music "mozart.ogg" => StartBGM
--- play sound "woof.mp3" => StartPCM
--- stop music fadeout 1.0 => FadeBGM + WaitForFadeBGM + PauseBGM
--- stop sound => StopPCM
--- #TODO: Add renpy specific wait function for music completion. Preferably with a modal screen so the user can't skip interaction.
-
-BGM and SFX will be hardcoded for the purpose of code integrity.
 
 FLAG SYSTEM:
 
 In renpy i will make it into a dictionary where a hex name will have an int value to manipulate
 
-FlagAdd (and FlagAdd62) - Add specified ammount to the selected flag.
-FlagSub                 - Substract specified ammount to the selected flag.
+FlagAdd (and FlagAdd62) - Add specified amount to the selected flag.
+FlagSub                 - Subtract specified amount to the selected flag.
 SetFlag                 - Sets the flag to the value
 FlagSetBit              - #TODO
-
-it seems that if statements are used as multiple check
-When an if statement is followed by an if statement then they should be evaluated together (&)
-Any command that folows an if statement is the command that should be executed if the statement is true
-it doesnt appear to have else statements so after executing the if statement if true then it will go to the next command unless a jump command was used.
-
-#TODO: Jump command is confussing. In most of the times it looks like a simple jump but also like it actually returns like calling a label in renpy
-
-
-DisplayMessage - this is used as calling a label because we expect to get back to that point of execution. It will return with EndTextBlk
-JumpBlk - This command is used to jump inside the DATA file. It will return based on End20.
-Jump - is used to jump between DATA files and DATA block. We specify the 2 hex value (0a 87 => filename) and the third is the block to execute. It also returns of End20.
-SameBlkJump - thats a very weird jump... It will jump into an incremented scenario in DATA file. So when the current scenario would be 2 and the command has 10 as a parrametter then the jump would go to the 12 block inside the DATA file. Why? But this does not work with some scenario files... Maybe it introduces some shifting in the current block? like adding just jumping a line ahead. It is only used in DATA files so it's confusing. For the most uses that exists it matches the idea of jumping to a scenario block. Only one doesn't match as a scenarion block doesnt exist with the specified number...
-#TODO: I will have to create a json tree for explaining every command and path that is possible with the scripts.
-
-Example:
-*0a
-IfNe ad 06 01
-Return2D
-IfNe ab 3d 08
-IfNe 24 06 04
-Jump 07 55 01
-IfNe ab 3e 08
-IfNe 24 08 04
-Jump 07 5a 01
-Return2D
-End20
 
 #TODO: Nazo messages
 Nazo23 0x23
@@ -176,14 +56,10 @@ Choice 22 03 23 00 24 08 25 10
 I am not sure on what the secondary value is for. (00,08,10)
 in toheart.c when calling for a choice there is a SetSavePoint function
 
-After calling Choice there are 3 Nazo6B and with my logic it would probaly mean is that each statement after Nazo6B is included in that choice Selection. #TODO: Verify
+After calling Choice there are 3 Nazo6B and with my logic it would probably mean is that each statement after Nazo6B is included in that choice Selection. #TODO: Verify
 
-Push2D and Return2D are a very veird way of jumping.
-Push2D takes 3 parameters (00 01 03) look at this like 0001.SCN blk 03
-This commands saves this to the memory and when the Return 2D is used then it calculates a new position to jump into like this:
-ToHeartLoadScenario(lvns, state->flag[TOHEART_FLAG_2D_SCN] * 256 +state->flag[TOHEART_FLAG_2D_SCN+1],state->flag[TOHEART_FLAG_2D_BLK]);
-the calculated values in this example would be (scn = 00*256 + 01 | blk 03) Why?
-now I know why. Because multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic. Still don't know how Return2D works when Push2D wasn't called at all.
+
+When multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic. Still don't know how Return2D works when Push2D wasn't called at all.
 
 #TODO: Some commands are used in a specific way. Need to analyze each of them
 
@@ -205,20 +81,20 @@ Parsing instructions:
 1. For the script data to remain as similar to the original all non standard commands will be made into python functions. For example:
 - Managing the BGM
 - Managing the SFX execution
-- Managing the visual particle system (#TODO: There apears to be a sakura leafs particle and rain particles. Need to check.)
-- Managing the internal callendar for events execution
+- Managing the visual particle system (#TODO: There appears to be a sakura leafs particle and rain particles. Need to check.)
+- Managing the internal calendar for events execution
 - Custom animations (for example clock)
 - Managing the BG / CG / HVisuals
 - Managing the characters position and expressions
-- Managing calling and jumping scenarios - Commands like Jump SameBlkJump DisplayMessage Return2D and Return2F all are acting as a comand that either uses it's own position location or returns to the previous statement. #TODO: need to be careful how to implement this
+- Managing calling and jumping scenarios - Commands like Jump SameBlkJump DisplayMessage Return2D and Return2F all are acting as a command that either uses it's own position location or returns to the previous statement. #TODO: need to be careful how to implement this
 
-2. The original script won't be translated as this project wants to focus first on the accesibility feautures of playing the TO HEART game on modern systems without the need to emulate or simulate an old windows system.
-- I want to support every game that uses the same scenario formats so it can be a very nice tool for enjoying the Visual Novel Series from Leaf (That would probably mean Shizuki and Kizuato i think both of them are supported by the same scenario scripting langauge #TODO: check)
-- The game UI will remain in english for accesibility.
-- #TODO: I want to add voice acting in a form of AI generated voices but that would require the user to launch a seperate script. This will be only a secondary solution. The user would need to provide voice samples for specific characters. The main problem in that solution is that the game doesnt explicitly define who is speaking as the whole game runs in nvl mode. That would add a lot of work on my side to ensure adding a landmark function to process the current say statement and play the apropriate sound file only if the speaker is defined as who actually is speaking. This could be done by just analyzing what character sprite is present at the moment and adding such statement, but I will experiment with this idea only when I will have at least a machine translated version of the game.
+2. The original script won't be translated as this project wants to focus first on the accessibility features of playing the TO HEART game on modern systems without the need to emulate or simulate an old windows system.
+- I want to support every game that uses the same scenario formats so it can be a very nice tool for enjoying the Visual Novel Series from Leaf (That would probably mean Shizuku and Kizuato i think both of them are supported by the same scenario scripting language #TODO: check)
+- The game UI will remain in English for accessibility.
+- #TODO: I want to add voice acting in a form of AI generated voices but that would require the user to launch a separate script. This will be only a secondary solution. The user would need to provide voice samples for specific characters. The main problem in that solution is that the game doesn't explicitly define who is speaking as the whole game runs in nvl mode. That would add a lot of work on my side to ensure adding a landmark function to process the current say statement and play the appropriate sound file only if the speaker is defined as who actually is speaking. This could be done by just analyzing what character sprite is present at the moment and adding such statement, but I will experiment with this idea only when I will have at least a machine translated version of the game.
 - In the setting panel I will add a python function to always add a translation switch button based on what folders are present in the 'tl' folder of the game.
-- The game itself can only be played when the user has access to a legal copy of the game. By providing to the 'game' folder the apropriate files (LVNS3SCN.PAK and LVNS3DAT.PAK) the game will attempt to decrypt the packages and based on specific intructions of the parser I will build it will create a structured version of the gamme saved in UTF-8 encoding as '.rpy' files.
-- The game as intended by the 2. point it will contain the jappannese version as default and no human translation will be provided. But there will be either AI translation service run in python or a use of a python packages that are able to translate jappannese to english. #TODO: When the simple parsing is already inplemented I will need to test for accuracy between diffrent types of translation. I want to avoid using online services as there can be a request limit that would not work the best for the future user.
+- The game itself can only be played when the user has access to a legal copy of the game. By providing to the 'game' folder the appropriate files (LVNS3SCN.PAK and LVNS3DAT.PAK) the game will attempt to decrypt the packages and based on specific instructions of the parser I will build it will create a structured version of the game saved in UTF-8 encoding as '.rpy' files.
+- The game as intended by the 2. point it will contain the jappannese version as default and no human translation will be provided. But there will be either AI translation service run in python or a use of a python packages that are able to translate japannese to english. #TODO: When the simple parsing is already inplemented I will need to test for accuracy between diffrent types of translation. I want to avoid using online services as there can be a request limit that would not work the best for the future user.
 - The scope of the project would be nice to widen in the future by including the PSE version of the game. This game already possess voice acting so that could help but the main problem would be merging the old script with the new one as the PSE version has new scenarios included and removed the +18 stuff. #TODO: If I ever have time to acomplish more for this project I will create a specific version of this to include the minigames, new scenarios and also merge the old scenarios. I think i could use AI tools for image generation to create additional CG of HVisuals for the characters that are included in the PSE version, but that's really a stretch.
 
 
@@ -869,22 +745,24 @@ ToHeartLoadCharacter(Lvns *lvns, int no, int pos)
 Implemantation:
 This specific function for loading characters onto the screen needs to be handled along with a class to keep track of what characters are currently displayed. #TODO: Write implementation
 
-
 NOTE: This action does not hide the nvl window during loading the character. It does not seem to change the character that's already displayed, but this needs further code investigating.
 
 ```
-
+ChangeCharacter 02 04 03
 ```
 
-**ChangeCharacter** takes the same parameters as the **LoadCharacter**, but it appears to also add more inbetween visual effects.
+**ChangeCharacter** takes the same parameters as the **LoadCharacter**, but it appears to also add more inbetween visual effects:
+1. We hide the nvl window
+2. We use the **LoadCharacter** function
+3. We show the nvl window again
 
-First the nvl windows is hidden. After that we use the LoadCharacter function to change the sprite. After than we show the nvl window. In the previous command we don't hide or show the nvl window.
+NOTE: The **LoadCharacterC2** appears to basically do the same thing as the **ChangeCharacter**. This command is invoked only once in the whole game (0530.SCN.TEXT). Need to replace that probably and investigate more.
 
-NOTE: The **LoadCharacterC2** appears to basically the same thing as the **ChangeCharacter** do. This command is invoked only once in the whole game (0530.SCN.TEXT). Need to replace that probably and investigate more.
+```
+ClearCharacter 03
+```
 
-# Handling "ClearCharacter"
-
-This function hides the character with the specified parameter on the screen 
+**ClearCharacter** will hide the character on the specified position. If 3 is passed then all the characters are cleared.
 
 # Handling "ClearAndLoadCharacter"
 
@@ -947,7 +825,7 @@ c[0]                c[1]    c[2]    c[3]    c[4]    c[5]    c[6]
 ...
 ```
 
-It seem's that this will be quite complex function depending on what animations are set. Probably the text_effect are the transitions. Not completly sure.
+It seem that this will be quite complex function depending on what animations are set. Probably the text_effect are the transitions. Not completely sure.
 
 # Handling "LoadThreeCharacters" command
 
