@@ -1,38 +1,4 @@
-Scenario are split into TEXT files and DATA files.
-The DATA files contain the flow of the TEXT files.
-
-EndTextBlk serves as the end of a block. Basically a return command in renpy.
-
-in renpy converted files i think the best way to keep the same scheme would be to use global and local labels.
-
-A global label would hold local labels based on the DATA files.
-
-
-tohear_op.c - (opdata[]) contains the opening intro. #TODO: analyze
-
-Choices i think work like this:
-Choice 22 03 23 00 24 08 25 10
-22 is the asking block and we specify how many choices we can have. 3 in this situation
-23, 24, 25 are the text blocks that will be the choices. It always a one liner.
-I am not sure on what the secondary value is for. (00,08,10)
-in toheart.c when calling for a choice there is a SetSavePoint function
-
-After calling Choice there are 3 Nazo6B and with my logic it would probably mean is that each statement after Nazo6B is included in that choice Selection. #TODO: Verify
-
-
-When multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic.
-
-
-KNOWN FACTS:
-- LvnsEtc.c - in LvnsInitSavePoint the scn and blk is set to 0 and 1 which indicated that the game will start on that specific file and block.
-- Nazo6B is used as a marked for where the choice maker should jump based on the choice...
-- in 00F2.SCN.DATA it appears that either the programmers cut of a piece of programming or that is a parsing error - an End20 is repeated twice in the same block. Should add a parameter to only accept this code if the next line is empty.
-
-- It appears that akari has a hairstyle change event and only she is evaluated for displaying her character. (toheart_etc.c) The same goes for CG
-
-NEW FILE
-
-##### HollowLeaf presents: TO HEART "Parser thingy"
+### HollowLeaf presents: TO HEART "Parser thingy"
 
 Hello.
 
@@ -83,6 +49,40 @@ If the To Heart turns to be a success by my standards I will maybe try the same 
 
 # WIKIPEDIA
 
+**Here are some random stuff that don't fit everywhere and don't need to remain here for ever...**
+
+Scenario are split into TEXT files and DATA files.
+The DATA files contain the flow of the TEXT files.
+
+EndTextBlk serves as the end of a block. Basically a return command in renpy.
+
+in renpy converted files i think the best way to keep the same scheme would be to use global and local labels.
+
+A global label would hold local labels based on the DATA files.
+
+
+tohear_op.c - (opdata[]) contains the opening intro. #TODO: analyze
+
+Choices i think work like this:
+Choice 22 03 23 00 24 08 25 10
+22 is the asking block and we specify how many choices we can have. 3 in this situation
+23, 24, 25 are the text blocks that will be the choices. It always a one liner.
+I am not sure on what the secondary value is for. (00,08,10)
+in toheart.c when calling for a choice there is a SetSavePoint function
+
+After calling Choice there are 3 Nazo6B and with my logic it would probably mean is that each statement after Nazo6B is included in that choice Selection. #TODO: Verify
+
+
+When multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic.
+
+
+KNOWN FACTS:
+- LvnsEtc.c - in LvnsInitSavePoint the scn and blk is set to 0 and 1 which indicated that the game will start on that specific file and block.
+- Nazo6B is used as a marked for where the choice maker should jump based on the choice...
+- in 00F2.SCN.DATA it appears that either the programmers cut of a piece of programming or that is a parsing error - an End20 is repeated twice in the same block. Should add a parameter to only accept this code if the next line is empty.
+
+- It appears that akari has a hairstyle change event and only she is evaluated for displaying her character. (toheart_etc.c) The same goes for CG
+
 # Naming convention
 
 ```python
@@ -92,6 +92,7 @@ def label_name(t, f, blk):
 
 #t="SCN", f=0005, blk=04 => "SCN_0005_04"
 #t="TXT", f=00a0, blk=01 => "TXT_00A0_01"
+#TODO: Change to original number shifting stuff
 
 def scn_filename(f):
     return ("SCN" + sep + f).upper() + ".rpy"
@@ -100,30 +101,29 @@ def scn_filename(f):
 ```
 
 
--**SCN** and **TXT** labels with the same filename will be places under one file for ease of use.
+**SCN** and **TXT** labels with the same filename will be places under one file for ease of use.
 
--Functions name will be as closely to the original, example
+Functions name will be as closely to the original.
 
--All files decompressed from the **LVNS3DAT.PAK** file will retain it's original naming.
+All files decompressed from the **LVNS3DAT.PAK** file will retain it's original naming.
 
 #### FOLDER structure:
 IMG
-* BG  - Used for all Background images
-* CG  - Used for all special full screen images
-* HV  - Used for all HVisuals
-* CHR - Used for all character sprites
-* OPD - Used for the opening scenario
-* CLK - Used for the clock animation
-* CAL - used for the callendar animation
+* BG  - Background Images
+* CG  - Special FullScreen Images
+* HV  - HVisuals
+* CHR - Character Sprites
+* OPD - Op Data
+* CLK - Clock Animation
+* CAL - Calendar Animation
 
 AUDIO
-* BGM - Used for all background music #TODO: Needs to be ripped from the CD with python
-* SFX - Used for all special sound effects
+* BGM - Background Music
+* SFX - Special Sound Effects
 * VOC - Used eventually for AI voice acting
 
 FONTS
-
-
+... # font files
 
 # DATA blocks commands
 
@@ -287,7 +287,7 @@ UnknownOpcode   #TODO: need to investigate 0610.SCN.TEXT, 0793.SCN.TEXT
 
 # Calendar Related Commands
 
-# Handling "DateSettingNoCalendar" Command
+Handling "DateSettingNoCalendar" Command
 
 ```c
     case 0x32: /* 日付を設定する */
@@ -305,7 +305,7 @@ UnknownOpcode   #TODO: need to investigate 0610.SCN.TEXT, 0793.SCN.TEXT
 
 This command is used at init of the game with the F0 passed as the parameter. It calculated what day it is. Nice
 
-# Handling "TimeSetting" Command
+Handling "TimeSetting" Command
 
 ```c
  case 0x33: /* 時刻を設定する */
@@ -344,7 +344,7 @@ This command is used at init of the game with the F0 passed as the parameter. It
 In this command we set the time of the clock to a specific time.
 When the command is invoked it will also show a clock animation from the current point to the end point. We also save the flags because they are relevant.
 
-# Handling "DateSetting" Command
+Handling "DateSetting" Command
 
 ```c
 case 0xf5:
@@ -391,7 +391,7 @@ Together with this command we also use other commands:
 Wait 2f
 ```
 
-The **Wait** command is used for halting user interraction for specified ammount. This probably is tied to frame count.
+The **Wait** command is used for halting script flow for specified amount. This probably is tied to frame count. Depending on where it's waiting it could need different solutions. Like if it's delaying a say statement then we need to parse the group of say statements as a multi-line say statement with pause statements between the lines. If its pausing sprite manipulation then a simple pause can be used.
 
 ```
 WaitKey
@@ -586,6 +586,10 @@ EndTextBlk
 
 I think the **Nazo6B** are used either as file padding or Choice Jump Checking. Anyway they are helpful for debugging even if they do nothing.
 
+Implementation:
+For this simple choice management I think the best way would be to include the asking question block before the menu statement to invoke specific options. In the menu statement it should always involve jumping to diffrent blocks so that's not a problem.
+The hard part would be to correctly parse all the options. It would appear that most of the times a choice block only contain 1 Text statement. #TODO: Write a testcase for checking if that is true.
+
 # Handling "VariableChoice" Command
 
 (#TODO: Don't know how is this working yet.)
@@ -610,49 +614,67 @@ This is used with the **VariableChoice** command.
 
 # Music Related commands
 
-NOTE:This game uses the CDROM to read song data that is written to the CD.
-The legit way would be to rip them from the original CD if you own it.
-In a perfect world this is possible, but I think in the end I will create a simple script for aquairing the OST from internet.
-
 # Handling "StartBGM" Command
 
-The **StartBGM** takes one argument that is the number of the song and starts it will full volume without fading in. It loops.
+```
+StartBMG 02
+```
 
-FadeBGM - Fades the song out right after calling it.
+**StartBGM** starts to play the song without a FadeIn or a FadeOut. The song will loop on auto when invoking this function. The parameter provided is the number of the song.
 
-WaitForFadeBGM - This function will wait until the song has stopped playing while fading out.
+```
+FadeBGM
+```
 
-PauseBGM - Pause the BGM without a delay.
+**FadeBGM** will imidietly fade the current playing song. It seems that fading In and Out time is set by default.
 
-you use these free commands together:
+```
+WaitForFadeBGM
+```
+
+**WaitForFadeBGM** will block any interaction while the song is Fading Out. 
+
+```
+PauseBGM
+```
+
+**PauseBGM** will stop the BGM without a delay. The game does not allow resuming the song.
 
 ```
 FadeBGM
 WaitForFadeBGM
 PauseBGM
 ```
-I will turn it into one function.
+These functions are always used together to FadeOut and block user interaction.
 
-FadeInBGM - Takes one parameter that is the number of the song. It fades the song up and its looping.
+```
+FadeInBGM 06
+```
 
-SetNextBgm
+**FadeInBGM** will play the song with a FadeIn and FadeOut.
 
-In standard the song is always looping.
+```
+SetNextBgm 03
+```
+
+**SetNextBgm** is putting a next song into the list. With that in mind if we have one song playing and we add the second one then the first will stop looping and then will play the second one but looping and effectively deleting the fisrt one from the list.
 
 When chaging the song the current song will stop looping and the next will continue to loop.
 
+Implementation:
+I will write a custom class for managing the song playing. It will contain two files references. The first one if present it's supposed to be looping. If we add the second file when the song reached the end it will evaluate if it still needs to be loping. If no then we take the second file and put it into the first one, we set the second one to None and with that a new loop starts again with a new song. The Fade Out command will act as a on demand stop function. When the function was called with the FadeIn it will also aply a FadeOut and still be looping.
+
 # Handling "StartPCM" Command
 
-LoadPCM - Loads the sound into the memory in renpy this is not needed. Takes one parameter
-
-```c
-    case 0xa0:		/* PCMスタート? */
-        dprintf((stderr, "[A0 PCM読み込み(%02d)]\n", c[1]));
-		if (!history_mode)
-			LvnsLoadSound(lvns, "TH_VD%02d.P16", c[1]);
-        c += 2;
-        break;
 ```
+LoadPCM 05
+```
+
+**LoadPCM** will save the filename into the memory of what song should be loaded. It also stops any sound that is currently playing.
+
+
+"TH_VD%02d.P16"
+
 
 StopPCM
 StartPCM
