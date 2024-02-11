@@ -8,45 +8,6 @@ in renpy converted files i think the best way to keep the same scheme would be t
 A global label would hold local labels based on the DATA files.
 
 
-FLAG SYSTEM:
-
-In renpy i will make it into a dictionary where a hex name will have an int value to manipulate
-
-FlagAdd (and FlagAdd62) - Add specified amount to the selected flag.
-FlagSub                 - Subtract specified amount to the selected flag.
-SetFlag                 - Sets the flag to the value
-FlagSetBit              - #TODO
-
-#TODO: Nazo messages
-Nazo23 0x23
-Nazo26 0x26
-Nazo27 0x27
-Nazo40 0x40
-Nazo44 0x44
-Nazo50 0x50
-Nazo6B 0x6b
-Nazo6C 0x6c
-Nazo70 0x70
-Nazo71 0x71
-Nazo72 0x72
-Nazo74 0x74
-Nazo75 0x75
-Nazo76 0x76
-Nazo79 0x79
-Nazo7A 0x7a
-NazoPCMA6 0xa6
-NazoPCMA7 0xa7
-NazoPCMA8 0xa8
-NazoB4 0xb4
-NazoB8 0xb8
-NazoBA 0xba
-NazoBE 0xbe
-NazoC7 0xc7
-NazoC9 0xc9
-NazoCC 0xcc
-NazoCF 0xcf
-NazoF8 0xf8
-
 tohear_op.c - (opdata[]) contains the opening intro. #TODO: analyze
 
 Choices i think work like this:
@@ -59,64 +20,68 @@ in toheart.c when calling for a choice there is a SetSavePoint function
 After calling Choice there are 3 Nazo6B and with my logic it would probably mean is that each statement after Nazo6B is included in that choice Selection. #TODO: Verify
 
 
-When multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic. Still don't know how Return2D works when Push2D wasn't called at all.
+When multiplying a 8bit value by 8bits will shift it into a 16bit value. Magic.
 
-#TODO: Some commands are used in a specific way. Need to analyze each of them
 
 KNOWN FACTS:
 - LvnsEtc.c - in LvnsInitSavePoint the scn and blk is set to 0 and 1 which indicated that the game will start on that specific file and block.
 - Nazo6B is used as a marked for where the choice maker should jump based on the choice...
-- Push2D and Push2F are used to save a specific rollback point so when Return2D or Return2F is called then the program can easily go back to the "savepoint". It is still unknown what should the script do if the the savepoint wasnt specified.
 - in 00F2.SCN.DATA it appears that either the programmers cut of a piece of programming or that is a parsing error - an End20 is repeated twice in the same block. Should add a parameter to only accept this code if the next line is empty.
-- There are instances of using the Text commands in DATA files where it does not make sense. Also there is Text statement that is normal. (00F1.SCN.DATA - Text "号善店父雷嵐義管浦善謡")
+
 - It appears that akari has a hairstyle change event and only she is evaluated for displaying her character. (toheart_etc.c) The same goes for CG
 
 NEW FILE
 
 ##### HollowLeaf presents: TO HEART "Parser thingy"
 
-It is supposed to be a tool for decompiling the original TO HEART files into a .rpy script file for enjoying the game on a modern system without the use of a old Windows machine or a virtual machine with a jappanese local enabled.
+Hello.
 
-Parsing instructions:
-1. For the script data to remain as similar to the original all non standard commands will be made into python functions. For example:
-- Managing the BGM
-- Managing the SFX execution
-- Managing the visual particle system (#TODO: There appears to be a sakura leafs particle and rain particles. Need to check.)
-- Managing the internal calendar for events execution
-- Custom animations (for example clock)
-- Managing the BG / CG / HVisuals
-- Managing the characters position and expressions
-- Managing calling and jumping scenarios - Commands like Jump SameBlkJump DisplayMessage Return2D and Return2F all are acting as a command that either uses it's own position location or returns to the previous statement. #TODO: need to be careful how to implement this
+This project aims to completely understand how does the **To Heart** game functions and try to build a modern version on top of Ren'py Visual Novel Engine.
 
-2. The original script won't be translated as this project wants to focus first on the accessibility features of playing the TO HEART game on modern systems without the need to emulate or simulate an old windows system.
-- I want to support every game that uses the same scenario formats so it can be a very nice tool for enjoying the Visual Novel Series from Leaf (That would probably mean Shizuku and Kizuato i think both of them are supported by the same scenario scripting language #TODO: check)
-- The game UI will remain in English for accessibility.
-- #TODO: I want to add voice acting in a form of AI generated voices but that would require the user to launch a separate script. This will be only a secondary solution. The user would need to provide voice samples for specific characters. The main problem in that solution is that the game doesn't explicitly define who is speaking as the whole game runs in nvl mode. That would add a lot of work on my side to ensure adding a landmark function to process the current say statement and play the appropriate sound file only if the speaker is defined as who actually is speaking. This could be done by just analyzing what character sprite is present at the moment and adding such statement, but I will experiment with this idea only when I will have at least a machine translated version of the game.
-- In the setting panel I will add a python function to always add a translation switch button based on what folders are present in the 'tl' folder of the game.
-- The game itself can only be played when the user has access to a legal copy of the game. By providing to the 'game' folder the appropriate files (LVNS3SCN.PAK and LVNS3DAT.PAK) the game will attempt to decrypt the packages and based on specific instructions of the parser I will build it will create a structured version of the game saved in UTF-8 encoding as '.rpy' files.
-- The game as intended by the 2. point it will contain the jappannese version as default and no human translation will be provided. But there will be either AI translation service run in python or a use of a python packages that are able to translate japannese to english. #TODO: When the simple parsing is already inplemented I will need to test for accuracy between diffrent types of translation. I want to avoid using online services as there can be a request limit that would not work the best for the future user.
-- The scope of the project would be nice to widen in the future by including the PSE version of the game. This game already possess voice acting so that could help but the main problem would be merging the old script with the new one as the PSE version has new scenarios included and removed the +18 stuff. #TODO: If I ever have time to acomplish more for this project I will create a specific version of this to include the minigames, new scenarios and also merge the old scenarios. I think i could use AI tools for image generation to create additional CG of HVisuals for the characters that are included in the PSE version, but that's really a stretch.
+If I don't finish this project you may use what you find here to continue the journey. This will also serve as a sort of wikipedia on how does every function should be implemented based on the original game.
 
+For understanding how the game is implemented I am using an open source implementation for linux operating systems called [xlvns](https://github.com/catmirrors/xlvns).
 
-# Ease of use and steps to reproduce
-1. Be rich.
-2. Import **To Heart** from Japan or already possess a copy of the game.
-3. Proceed only if your copy of the game is legal and it's compatible. This will only work for the release of 1996 for Windows PC.
-4. Rip audio files using a CD reaper tool:
-* Windows
-    -a
-    -b
-    -c
-* Linux
-    -a
-    -b
-    -c
-* MacOs
-    - I'm sorry I can't really help here and test If I don't have a mac machine. If someone want's to provide steps and software please let me know so I can include it here.
-5. Place the audio files under **ASSETS/BGM**
-6. If you skip step 4 and 5 then game will not have music.If you want to do this process manually then you need to name the songs from zero to the last number written in hex values. The files should be placed in **game/AUDIO/BGM/**
-7. If you missplaced the order of the songs before running the main script then the BGM music will not be accurate to the original (it could play a happy song when there is a tragic flashback). So to prevent that ensure that the list of songs are exactly in the same order as on the cd.
-6. Find files: **LVNS3DAT.PAK** and **LVNS3SCN.PAK** and place them into **ASSETS/**
+It is designed for 3 games in mind - kizuato, shizuku and to heart.
+The project If my research is right was called LeafBSD. 
+
+This codebase provides a lot to this project as I don't actually have to play the game while reading the scenario files to understand what is happening. 
+
+This obviously doesn't help me with more sophisticated systems (I am looking at you VariableChoice Command) that I still don't really understand, but I'll be fine. Probably.
+
+#TODO: maybe when setting the flags for variablechoice command in the command itself are just filenames to jump to based on what was inserted into the previous flags. so we display whats in the flags and then jump to label with the number...
+
+For decompiling the game script I am using [this](https://github.com/Her-Saki/toheart-tools).
+
+The person that maintains this repo is also translating the game. You can check the progress [here](https://discord.gg/G9nd22F).
+
+My project focuses on machine translation and other (un)necessary functions that I will probably (not) implement:
+* AI generated voice acting rather than ripping audio from the PSE edition - as the second point says we need a function to determine who is speaking to even attempt on generating AI voices, but if we flag properly every say statement then by providing voice samples and some prompts on how does the voice should sound like (by emotion I mean) then it could be a nice addition.
+* Non nvl mode for whatever reason purely based on logic by looking at what character was currently displayed on the screen. Very stupid idea. This would require additional parsing logic for inserting statements into the original script. It could be done, but for now I want to go with the path of least resistance so I can enjoy talking with 2D girls on my 4:3 LCD. Look at point 1.
+* A mash-up of the original with the PSE edition just for fun. They say that the PSE edition contains some better story telling and better expanded scenario or whatever else, so it would be nice to create such an abomination.
+* Implementing the mini games that I don't even know what they are... Nevermind, this won't happen anyway.
+
+If quality matters to you I advise to wait for Saki's translation to finish.
+
+It will be 200% better than machine translated. If I still have time in the future I'll support his translation into this project. Something like "English, but better" option in the options menu with a huge credit.
+
+For the graphic and sfx assets I am using [this](https://github.com/vn-tools/arc_unpacker).
+
+This tool is so useful for a lot of visual projects. I recommend it will all my heart even if its not actively developed right now.
+
+The BGM is kinda complicated because the songs are embedded onto the disk itself. For this solution we will need to rip the audio track from the original CD.
+
+If I find a cross-platform solution that could be run from python (or at least provide support for 3 operating systems with various cd riper software) then this process will also be automated.
+That's the plan.
+
+In the ideal future any dependency will be added or preferably coded into the main script in this repository so the user would just need to download it and run it.
+
+The plan includes to have a gpt4all model of sorts that's comfortable to run on a low end machine (under 4GB of RAM).
+The entire purpose of this project is to ship an automatic solution for a nice machine translation project. I believe with some proper prompting, we can create somehow accurate translation that would not stick out that bad, but I'd still recommend to wait for a human translation.
+
+If the To Heart turns to be a success by my standards I will maybe try the same with Kizuato and Shizuku. They run on (almost) same engine so I don't think it will be difficult to accomplish.
+
+# WIKIPEDIA
 
 # Naming convention
 
