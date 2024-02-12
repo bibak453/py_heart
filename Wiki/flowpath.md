@@ -1,97 +1,60 @@
-# Jumping Commands
+## Jumping Commands
 
-These commands are used in the SCN files.
+These commands are utilized in SCN files to navigate through the game's script:
 
-```
-Jump 02 23 01
-```
+- **Jump**: This command directs the script to a specified point without returning.
+  - Example: `Jump 02 23 01`
 
-**Jump** will "jump" to the new specified context without returning.
+- **JumpBlk**: Jumps to a specific SCN block within the file where the command is invoked.
+  - Example: `JumpBlk 0f`
 
-```
-JumpBlk 0f
-```
+- **SameBlkJump**: Jumps to an incremented SCN block in the file where the command is invoked. For instance, if we are in block 05, then this command jumps to block 9.
+  - Example: `SameBlkJump 04`
 
-**JumpBlk** will "jump" to a specific SCN block in the file that the command was invoked.
+- **DisplayMessage**: Calls a statement from the TXT block of the same filename, then returns to the previous execution point.
+  - Example: `DisplayMessage 01`
 
-```
-SameBlkJump 04
-```
+- **Push2F** and **Push2D**: Functions that save pointers to SCN blocks.
+  - Example: `Push2F 00 3a 02`, `Push2D 00 20 01`
 
-**SameBlkJump** will "jump" to a incremented SCN block in the file that the command was invoked. If we are in the block 05 then with the example we will jump to block 9.
+- **Return2F** and **Return2D**: Functions to jump to the saved pointer location.
+  - Example: `Return2F`, `Return2D`
 
-```
-DisplayMessage 01
-```
+## Logic Resolution
 
-**DisplayMessage** is a call statement to the TXT block of the same filename. After calling it we return to the previous point of execution.
+In the script logic, **If** statements determine whether to skip a specified number of bytes if true.
+In the script logic, **If** statements enable conditional branching based on various comparisons:
 
-**Implementation (func.rpy):**
-```renpy
-label DisplayMessage(txt_blk, clear = False):
-    call expression "txt_blk" #TODO: Check syntax
-
-    if clear:
-        nvl clear
-    return
-```
-
-This function will handle both the **DisplayMessage** and the **DisplayMessageAndClear**.
-
-```
-Push2F 00 3a 02
-Push2D 00 20 01
-```
-**Push2F** and **Push2D** are functions that saves pointers to Scene blocks.
-
-```
-Return2F
-Return2D
-```
-**Return2D** and **Return2F** are functions to **Jump** to the saved pointer location.
-
-**Implementation:**
-This solution is quite custom so in renpy I will implement a class to hold the specific label that we need to jump to and the Return functions will invoke the jumping method based on what's saved in the pointer class.
-
-# Logic Resolution
+- `IfEq`: Skips bytes if equal to a specified value.
+- `IfNe`: Skips bytes if not equal to a specified value.
+- `IfGt`: Skips bytes if greater than a specified value.
+- `IfLe`: Skips bytes if less than or equal to a specified value.
+- `IfGte`: Skips bytes if greater than or equal to a specified value.
+- `IfLte`: Skips bytes if less than or equal to a specified value.
+- `IfBitOn`: Skips bytes if a bit is set to "on" in the specified value.
+- `IfBitOff`: Skips bytes if a bit is set to "off" in the specified value.
 
 ```
 *0a
-IfNe ad 06 01   # if true---
-Return2D                   |
-IfNe ab 3d 08           <--- # if true---
-IfNe 24 06 04                            |
-Jump 07 55 01                            |
-IfNe ab 3e 08                         <---# if true---
-IfNe 24 08 04                                         |
-Jump 07 5a 01                                         |
-Return2D                    <-------------------------
+IfNe ad 06 01   <--- # if true
+Return2D                    |
+IfNe ab 3d 08   <--- # if true
+IfNe 24 06 04               |
+Jump 07 55 01               |
+IfNe ab 3e 08   <---# if true
+IfNe 24 08 04               |
+Jump 07 5a 01               |
+Return2D        <------------
 End20
 ```
 
-If an **If** statement turns to be true, then we skip the specified ammount of bytes in the file.
+## Simple Choice Resolution
 
-**IfNe** 00 06 01:
-- **00** - adress the value resides
-- **06** - value to compare to
-- **01** - number of bytes to skip
+The `Choice` command facilitates simple choices in the game script.
 
-```
-IfEq        - if its equal                 x == y  
-IfNe        - if its not equal             x != y  
-IfGt        - if its greater               x > y   
-IfLe        - if its lower                 x < y   
-IfGte       - if its greater or equal      x >= y  
-IfLte       - if its smaller or equal      x =< y  
-IfBitOn     - #TODO
-IfBitOff    - #TODO
-
-x = current value | y = second value to compare
-```
-
-
-# Simple Choice resolution
-
+- It presents a question and options, each associated with a block of text.
+- After selecting an option, the script jumps to the corresponding block of text.
+- Example:
 ```
 Choice 01 02 03 05 04 00
 Nazo6B
@@ -103,75 +66,19 @@ Jump 01 ad 01
 End20
 ```
 
-In this example this Choice takes 6 parameters:
+`01` is the asking TXT block
 
-**01** is the question contained in the Text block.
+`02` is the number of options
 
-```python
-*01
-Text "「……」"
-WaitKey
-...
-Text "…えっ、部室に来て欲しいって？"             # "...Huh, you want me to come to the club room?"
-WaitKey
-Text "　うーん、そうだなあ──」"                 # "Hmm, let's see..."
-NewLine
-EndTextBlk
-```
+`03` is the question A
 
-**02** is the number of choices available.
+`04` is the question B
 
-**03** is the text block of the first question.
+`05` is the point of jump for question A
 
-```python
-*03
-SetTextOffset 06
-CharacterDrawSpeed 00
-Text "Ａ、行く。"               # "A, I'll go."
-NewLine
-EndTextBlk
-```
-
-**05** is the amount of bytes to skip if we pick option A.
-
-**04** is the text block of the second question.
+`00` us the point of jump for question B
 
 
-```python
-*04
-SetTextOffset 06
-CharacterDrawSpeed 00
-Text "Ｂ、行かない。"           # "B, I won't go."
-NewLine
-EndTextBlk
-```
+## Handling "VariableChoice" Command
 
-**00** is the amount of bytes to skip if we pick option B
-
-I think the **Nazo6B** are used either as file padding or Choice Jump Checking. Anyway they are helpful for debugging even if they do nothing.
-
-Implementation:
-For this simple choice management I think the best way would be to include the asking question block before the menu statement to invoke specific options. In the menu statement it should always involve jumping to different blocks so that's not a problem.
-The hard part would be to correctly parse all the options. It would appear that most of the times a choice block only contain 1 Text statement. #TODO: Write a testcase for checking if that is true.
-
-# Handling "VariableChoice" Command
-
-(#TODO: Don't know how is this working yet.)
-
-This command resets 12 values:
-
-toheart.c
-```c
-case 0x2c:
-		dprintf((stderr, "[選択肢前位置()]\n"));
-        {
-            int i;
-            LvnsSetSavePoint(lvns, &lvns->selectpoint);
-            memcpy(state->flag_select, state->flag, sizeof state->flag);
-            for (i=0; i<12; i++)
-                state->flag[TOHEART_FLAG_VSELECT_MSG + i] = 0;
-        }
-        c++;
-        break;
-```
-This is used with the **VariableChoice** command.
+#TODO: Complete this

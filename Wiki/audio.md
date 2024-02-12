@@ -1,78 +1,33 @@
-# Music Related commands
+# BGM
 
-```
-StartBMG 02
-```
+`StartBGM 01`: Starts playing a song without a FadeIn or FadeOut. The song will loop automatically. The parameter provided is the number of the song.
 
-**StartBGM** starts to play the song without a FadeIn or a FadeOut. The song will loop on auto when invoking this function. The parameter provided is the number of the song.
+`FadeBGM`: Immediately fades out the currently playing song. The FadeIn and FadeOut time is set by default.
 
-```
-FadeBGM
-```
+`WaitForFadeBGM`: Blocks any interaction while the song is fading out.
 
-**FadeBGM** will imidietly fade the current playing song. It seems that fading In and Out time is set by default.
+`PauseBGM`: Stops the background music (BGM) without a delay. Resuming the song is not supported in the game.
 
-```
-WaitForFadeBGM
-```
+`FadeBGM`, `WaitForFadeBGM`, `PauseBGM`: These functions are used together to FadeOut the current song and block user interaction until the fade-out is complete.
 
-**WaitForFadeBGM** will block any interaction while the song is Fading Out. 
+`FadeInBGM 01`: Plays the song with a FadeIn and FadeOut effect.
 
-```
-PauseBGM
-```
+`SetNextBGM 01`: Sets the next song on the second position. If a song is already playing and another one is added, the current song stops looping, and the new song starts looping.
 
-**PauseBGM** will stop the BGM without a delay. The game does not allow resuming the song.
+## Implementation
 
-```
-FadeBGM
-WaitForFadeBGM
-PauseBGM
-```
-These functions are always used together to FadeOut and block user interaction.
+A custom class will be created for managing song playing, containing references to two files. The first file, if present, is supposed to be looping. If a second file is added while the first is still playing, the first one stops looping on end of the song, and the second one starts looping taking place in the first one.
 
-```
-FadeInBGM 06
-```
+# PCM
 
-**FadeInBGM** will play the song with a FadeIn and FadeOut.
+`LoadPCM`: Saves the filename into memory for the song to be loaded. It also stops any currently playing sound.
 
-```
-SetNextBgm 03
-```
+`StartPCM 01 00`: Starts the saved sound effect. The first parameter specifies the looping count. When set to zero, the sound loops indefinitely. If set to any other value, it repeats x times. The second parameter seems irrelevant.
 
-**SetNextBgm** is putting a next song into the list. With that in mind if we have one song playing and we add the second one then the first will stop looping and then will play the second one but looping and effectively deleting the fisrt one from the list.
+`StopPCM`: Stops the sound. This command is relevant when the repeat count was not specified.
 
-When chaging the song the current song will stop looping and the next will continue to loop.
+`WaitPCM`: Waits until the sound stops playing. Only relevant when the repeat count was provided, as when the sound is set on loop, this will wait indefinitely.
 
-Implementation:
-I will write a custom class for managing the song playing. It will contain two files references. The first one if present it's supposed to be looping. If we add the second file when the song reached the end it will evaluate if it still needs to be loping. If no then we take the second file and put it into the first one, we set the second one to None and with that a new loop starts again with a new song. The Fade Out command will act as a on demand stop function. When the function was called with the FadeIn it will also aply a FadeOut and still be looping.
+## Implementation
 
-```python
-LoadPCM 05
-# Filename = "TH_VD%02d.P16"
-```
-
-**LoadPCM** will save the filename into the memory of what song should be loaded. It also stops any sound that is currently playing.
-
-```
-StartPCM 01 00
-```
-
-**StartPCM** will start the saved sound effect. The provided parameter is the looping count. When the first parameter is zero then the sound is looping. If it's anything else then it repeats x times. The second parameter seems irrelevant.
-
-```
-StopPCM
-```
-
-This command is relevant when the repeat count was not specified. It will stop the sound.
-
-
-```
-WaitPCM
-```
-
-This function will wait until the sound would stop playing. Only relevant when the repeat count was provided as when the sound is set on loop this will wait for infinite ammount of time.
-
-Implementation:
-In renpy I will implement a class for controlling and playing sound effects based on these commands.
+In Ren'Py, a class will be implemented for controlling and playing sound effects based on these commands.
