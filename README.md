@@ -375,44 +375,37 @@ Here is the same situation. We have some flags set for the current date that it 
 
 # Narrative Commands
 
+These commands are used in the TXT files.
+
 ```
 Text "　よく見れば、やっぱり理緒ちゃんだ。"
 ```
 
 The **Text** command is used to display dialogue to the screen.
-In renpy the equivalent of say.
-We will only need the narrator class as the nvl kind.
-
-The text is enclosed with double quotes.
-
-Together with this command we also use other commands:
 
 ```
 Wait 2f
 ```
 
-The **Wait** command is used for halting script flow for specified amount. This probably is tied to frame count. Depending on where it's waiting it could need different solutions. Like if it's delaying a say statement then we need to parse the group of say statements as a multi-line say statement with pause statements between the lines. If its pausing sprite manipulation then a simple pause can be used.
+The **Wait** command is used for halting script flow for specified amount. This probably is tied to frame count.
 
 ```
 WaitKey
 ```
 
-The **WaitKey** command is used as the user interaction method.
-In renpy the say statement already does that funtion.
+The **WaitKey** is used as a pause statement that is skipped when the user clicks on the screen to progress.
 
 ```
 WaitPage
 ```
 
-The **WaitPage** command is used as the user interaction method that also resets the current screen.
-In renpy this would be nvl clear. As it will clear the "page".
+The **WaitPage** is used as a pause statement that is skipped when the user clicks on the screen to progress. After that it it will clear the screen.
 
 ```
 NewLine
 ```
 
-The **NewLine** command is used to start at a new line.
-Renpy say statement already always start in a new line. This is useful when we want to write multiple lines in one paragraph continuisly.
+The **NewLine** will put the cursor of the text engine at the start of the new line.
 
 ```
 EndTextBlk
@@ -420,46 +413,33 @@ EndTextBlk
 
 The **EndTextBlk** command is used to mark the end of the Text block. It works like a return statement.
 
-
-
 # Jumping Commands
+
+These commands are used in the SCN files.
 
 ```
 Jump 02 23 01
 ```
 
-**Jump** is a simple jump statement.
-The first two parameters are combined into a text file and the third parameter is the Scene block to execute.
-Jump does not return.
-
-**Implementation:**
-When parsing this command will be made into a simple jump statement with the correct block to jump to depending on the conditions.
+**Jump** will "jump" to the new specified context without returning.
 
 ```
 JumpBlk 0f
 ```
 
-**JumpBlk** is a jump statement for jumping to a specific Scene block in the same file.
-
-**Implementation:**
-When parsing this command will be made into a simple jump statement with the correct block to jump to depending on the conditions.
-
+**JumpBlk** will "jump" to a specific SCN block in the file that the command was invoked.
 
 ```
 SameBlkJump 04
 ```
 
-**SameBlkJump** is a command that will jump to the incremented block. If we are in the block 05 then with the example we will jump to block 9.
-
-**Implementation:**
-When parsing this command will be made into a simple jump statement with the correct block to jump to depending on the conditions.
+**SameBlkJump** will "jump" to a incremented SCN block in the file that the command was invoked. If we are in the block 05 then with the example we will jump to block 9.
 
 ```
 DisplayMessage 01
 ```
 
-**DisplayMessage** is a call statement to the text block of the same filename.
-After calling it we return to the previous point of execution.
+**DisplayMessage** is a call statement to the TXT block of the same filename. After calling it we return to the previous point of execution.
 
 **Implementation (func.rpy):**
 ```renpy
@@ -471,8 +451,7 @@ label DisplayMessage(txt_blk, clear = False):
     return
 ```
 
-In the place of **DisplayMessage** we'll put this funtion using the call method so we can return to the current context.
-As there is also a command that clears the screen after the interaction (DisplayMessageAndClear) we can add a parameter **clear** for this purpose.
+This function will handle both the **DisplayMessage** and the **DisplayMessageAndClear**.
 
 ```
 Push2F 00 3a 02
@@ -693,28 +672,13 @@ In renpy I will implement a class for controlling and playing sound effects base
 
 # Graphic Related Commands
 
-```c
-void
-LvnsUndispText(Lvns *lvns)
-{
-	LvnsFlip(lvns, True); // ����Ʊ���Τ����
-	lvns->text_mode = False;
-	if (lvns->skip) {
-		lvns->latitude = 16;
-		LvnsDispWindow(lvns);
-	} else {
-		LvnsLighten(lvns);
-	}
-}
-```
-
-This is called when wanting to show the characters. Basically a nvl hide window command
-
 ```
 LoadCharacter 02 04 03
 ```
 
 **LoadCharacter** is used to load a character sprite.
+
+This action does not hide the nvl window during loading the character.
 
 The first parameter is the position - 0 is left, 1 is center, 2 is right.
 
@@ -742,16 +706,14 @@ ToHeartLoadCharacter(Lvns *lvns, int no, int pos)
 }
 ```
 
-NOTE: This action does not hide the nvl window during loading the character. It does not seem to change the character that's already displayed, but this needs further code investigating.
-
 ```
 ChangeCharacter 02 04 03
 ```
 
-**ChangeCharacter** takes the same parameters as the **LoadCharacter**, but it appears to also add more in between visual effects:
-1. We hide the nvl window
-2. We use the **LoadCharacter** function
-3. We show the nvl window again
+**ChangeCharacter** takes the same parameters as the **LoadCharacter**, but it also:
+1. Hide the nvl window
+2. Use the **LoadCharacter** function effectively changing the displayed character.
+3. Shows the nvl window again
 
 NOTE: **LoadCharacterC2** seems to do basically the same thing as the **ChangeCharacter**. It's invoked only once in the whole game (0530.SCN.TEXT).
 
@@ -759,7 +721,7 @@ NOTE: **LoadCharacterC2** seems to do basically the same thing as the **ChangeCh
 ClearCharacter 03
 ```
 
-**ClearCharacter** will clear the character on the specified position. If a 3 is passed as a parameter then it will clear every character.
+**ClearCharacter** will clear the character on the specified position. If a 3 is passed as a parameter then it will clear every character. It does not affect the nvl window.
 
 ```
 ClearAndLoadCharacter 01 00 0A
@@ -767,20 +729,20 @@ ClearAndLoadCharacter 01 00 0A
 
 In this function:
 1. We hide the nvl window
-2. We use the ClearCharacter with parameter 3 - cleans every character
+2. We use the ClearCharacter with parameter 3 - clears every character
 3. Displays the character with the parameters passed like in the LoadCharacter
 4. Shows again the nvl window
 
 ```
-LoadCharacterAndBg  02  1e  09  14  0b  00
+LoadCharacterAndBg 02 1e 09 14 0b 00
 ```
 
 In this function:
 1. We hide the nvl window
-2. We transition with the fifth parameter
+2. We clear the screen (to black) with the fifth parameter
 3. We load the BG with the forth parameter
 4. We load the character with position as first parameter and the computed file name with second and third parameter
-5. We transition with the sixth parameter back the nvl window I think.
+5. We transition to the computed screen with the sixth parameter.
 
 ```
 LoadThreeCharacters 00 1c 01 02 ff ff 01 ff ff
@@ -791,11 +753,10 @@ In this function:
 2. We load the first character with first parameter as position and second and third to compute the filename.
 3. We load the second character with forth parameter as position and fifth and sixth to compute the filename.
 4. We load the third character with seventh parameter as position and eight and ninth to compute the filename.
+5. All the loading should be done one after another. #TODO: Check
 5. We show the nvl window.
 
-This also is a long command, but let's break it down:
-
-# Handling "LoadBG" and "LoadBg2"
+"LoadBG" and "LoadBg2"
 
 ```c
 void
@@ -825,45 +786,35 @@ ToHeartLoadBG(Lvns *lvns, int no)
 LoadBG 02
 Effect 05
 ```
+The LoadBG takes one parameter and is accompanied by the Effect Command.
+
+This is probably used to transition to the new BG from the current one without going to black. This set of command can also be found a Nazo23 with some values like:
+
+* 0x1E - 030
+* 0x32 - 050
+* 0x64 - 100
+* 0xC8 - 200
+
+I assume it's used as a non standard transition time. Probably expressed in frame count. #TODO: Check
 
 In this function:
 1. We create the filename "S" + parameter in hex + ".LF2"
-2. There are two weird statements that I will omit.
-3. in the fifth character we put a new character based on the haikeiflag[] = { 'D', 'E', 'N', 'X', }; => haikeiflag[no / 50].
-4. We call the LvnsLoadBackground (with the name and number % 50)
+2. There are two weird statements that I will omit (point 3).
+3. on the fifth position of the filename we put a new character based on the haikeiflag[] = { 'D', 'E', 'N', 'X', }; => haikeiflag[no / 50].
+4. We call the LvnsLoadBackground (filename, number_from_filename % 50)
 5. Then we also call the ClearCharacter with the parameter 3.
 
-The LoadBG takes one parameter and is accompanied by the Effect Command. For renpy purpose I will implement this in another way.
-It also appears that Nazo23 is sometime put together with this set of commands.
-And again the Nazo23 a new finding - it also does nothing. At least that's what the xlvns says. I think it provides timing for the effect function. #TODO: Look into it for most part it takes value like 0x1e(30), 0x32(50), 0x64(100), 0xc8(200),  I assume thats frame time.
-
-```c
-    case 0xbd:		/* 背景ロードその2 */
-		dprintf((stderr, "[背景ロード2 (%d/%d, %02x, %02x)]\n",
-				 c[1]/50, c[1]%50, c[2], c[3]));
-		if (!history_mode) {
-			LvnsUndispText(lvns);
-			LvnsClear(lvns, text_effect(c[2]));
-			ToHeartLoadBG(lvns, c[1]);
-			LvnsDisp(lvns, text_effect(c[3]));
-		}
-		c += 4;
-        break;
-```
+Basically we would need to first clear the characters before transitioning to a new location. We don't hide or show the nvl window.
 
 ```
 LoadBG2 15 00 00
 ```
 
-This is a replacment function for placing effects before and after loading the background.
-
-In this function:
+This function have a similar actions, but in this function:
 1. We hide the nvl window.
-2. We clear the screen with effect with parameter 2
-3. We load the background into the memory with the parameter 1
-4. We use the parameter 3 to display the background
-
-NOTE: In renpy I will just use the effect to go to black and then use the effect to go to the bg.
+2. We clear the screen with effect with parameter 2.
+3. We load the bg into the memory with the parameter 1.
+4. We use the parameter 3 to transition the bg.
 
 # Handling "LoadVisualScene" and "LoadHVisualScene" Command
 
