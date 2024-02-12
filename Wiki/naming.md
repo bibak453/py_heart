@@ -1,41 +1,50 @@
-# Naming convention
+## Label Naming Convention
+
+We use two main label types: **SCN** and **TXT**, representing script files within the game.
+
+The `label_name` function constructs label names using the following components:
+- `filetype`: Type of the label (e.g., "SCN", "TXT").
+- `filename`: Name of the file.
+- `block`: Block identifier.
 
 ```python
-sep = "_"
-def label_name(t, f, blk):
-    return (t + sep + file + sep + blk).upper()
+separator = "_"
 
-#t="SCN", f=0005, blk=04 => "SCN_0005_04"
-#t="TXT", f=00a0, blk=01 => "TXT_00A0_01"
-#TODO: Change to original number shifting stuff
-
-def scn_filename(f):
-    return ("SCN" + sep + f).upper() + ".rpy"
-
-#f=0012 => "SCN_0012.rpy"
+def label_name(filetype, filename, block):
+    return (filetype + separator + filename + separator + block).upper()
 ```
 
+Both `SCN` and `TXT` labels with the same filename will be placed in the same file.
 
-**SCN** and **TXT** labels with the same filename will be places under one file for ease of use.
+## File Naming Convention
 
-Functions name will be as closely to the original.
+The `scn_filename` function generates filenames for script files in the format: "SCN_filename.rpy".
 
-All files decompressed from the **LVNS3DAT.PAK** file will retain it's original naming.
+```python
+def scn_filename(filename):
+    return ("SCN" + separator + filename).upper() + ".rpy"
+```
 
-#### FOLDER structure:
-IMG
-* BG  - Background Images
-* CG  - Special FullScreen Images
-* HV  - HVisuals
-* CHR - Character Sprites
-* OPD - Op Data
-* CLK - Clock Animation
-* CAL - Calendar Animation
+## Folder Structure
 
-AUDIO
-* BGM - Background Music
-* SFX - Special Sound Effects
-* VOC - Used eventually for AI voice acting
+Our project follows a structured folder hierarchy to organize different types of files:
 
-FONTS
-... # font files
+### img Folder
+- **bgs**: Background Images
+- **cgs**: Special FullScreen Images
+- **hcg**: HVisuals
+- **chr**: Character Sprites
+- **opd**: Op Data
+- **clk**: Clock Animation
+- **cal**: Calendar Animation
+
+### snd Folder
+- **bgm**: Background Music
+- **sfx**: Special Sound Effects
+- **voc**: Reserved for future AI voice acting
+
+### fnt Folder
+- Contains font files used in the project.
+
+### tl Folder
+- Contains translation files.
