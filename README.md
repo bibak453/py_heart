@@ -86,11 +86,6 @@ KNOWN FACTS:
 *TimeSetting
 *DateSettingNoCalendar
 
-FlagAdd
-FlagAdd62
-FlagSetBit
-FlagSub
-
 GameOver
 
 Nazo23
@@ -105,9 +100,6 @@ Nazo7A
 
 NazoPCMA6
 
-SetFlag
-
-
 StartEnding
 
 TitleDisplay
@@ -120,24 +112,12 @@ WhiteIn
 ```
 CharacterDrawSpeed
 
-
-*LoadCharacter
-*LoadCharacterC2
-*LoadCharacterAndBg
-*LoadThreeCharacters
-*ChangeCharacter
-*ClearAndLoadCharacter
-*ClearCharacter
-
-*LoadBG
-*LoadBG2
 *LoadVisual
 *LoadVisualScene
 *LoadHVisualScene
 
 *DateSetting
 
-Effect
 SpecialEffect
 SepiaEffect
 

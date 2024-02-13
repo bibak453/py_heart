@@ -12,3 +12,5 @@
 - **NewLine**: Move the cursor of the text engine to the start of a new line.
 
 - **EndTextBlk**: Marks the end of the Text block, functioning like a return statement.
+
+- **SayNameD%02x**: Is a function to input the name person that is playing.

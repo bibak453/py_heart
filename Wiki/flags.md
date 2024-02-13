@@ -29,3 +29,4 @@ but if it's set to zero, then:
 ```c
 state->flag[c[1]] &= ~(1 << c[2]);
 ```
+NOTE: Need to figure out what flags are used as persistend values. Because each route after completing it is probably set to true if completed so we can triger a congratulation messeage from the devs.

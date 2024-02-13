@@ -82,3 +82,12 @@ End20
 ## Handling "VariableChoice" Command
 
 #TODO: Complete this
+
+## Ending the game
+
+`StartEnding 00` seems to just play the ending sequence that is just the same for every scenario. The parameter is useless. It was probably intended to have different endings sequence but it just didn't happen or it's not implemented in the `xlvns`.
+
+NOTE: I think there is a secret ending sequence because the file where the `StartEnding 01` is it contains congratulations for completing all the routes.
+
+`GameOver` is a useless I would say. It only breaks the loop but it's not usually at the end of the block. After it it's usually the `StartEnding` command. The only exception is in `0072.SCN.DATA`
+
