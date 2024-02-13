@@ -85,7 +85,7 @@ End20
 
 ## Ending the game
 
-`StartEnding 00` seems to just play the ending sequence that is just the same for every scenario. The parameter is useless. It was probably intended to have different endings sequence but it just didn't happen or it's not implemented in the `xlvns`.
+`StartEnding 00` seems to just play the ending sequence that is just the same for every scenario. The parameter is useless. It was probably intended to have different endings sequence but it just didn't happen or it's not implemented in the `xlvns`. After each ending we save to the seen flag and when the last person is evaluated then we can access the last ending. I think.
 
 NOTE: I think there is a secret ending sequence because the file where the `StartEnding 01` is it contains congratulations for completing all the routes.
 
