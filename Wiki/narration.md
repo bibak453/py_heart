@@ -7,7 +7,7 @@
 
 - **WaitKey**: Pause statement that is skipped when the user clicks on the screen to progress.
 
-- **WaitPage**: Pause statement that is skipped when the user clicks on the screen to progress. After that, it clears the screen.
+- **WaitPage**: Pause statement that is skipped when the user clicks on the screen to progress. After that, it clears the screen. It seems that it also sets a rollback to the end of the page.
 
 - **NewLine**: Move the cursor of the text engine to the start of a new line.
 
