@@ -86,8 +86,6 @@ KNOWN FACTS:
 *TimeSetting
 *DateSettingNoCalendar
 
-GameOver
-
 Nazo23
 Nazo26
 Nazo40
@@ -99,8 +97,6 @@ Nazo79
 Nazo7A
 
 NazoPCMA6
-
-StartEnding
 
 TitleDisplay
 VariableChoice
@@ -150,10 +146,6 @@ NazoF8
 NazoPCMA6
 NazoPCMA7
 NazoPCMA8
-
-SayNameD1
-...
-SayNameF2
 
 SetTextOffset
 ```
