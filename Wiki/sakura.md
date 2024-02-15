@@ -1,1 +1,3 @@
 Why would you embed a sakura leaf into your executable of the game? for what reason? Why can't it be like any other asset in a packed archive in one place? Who made you do this Leaf? The same goes for BGM, but I understand the ease of use of having a cd game where it can also function as a playlist in a cd reader.
+
+In this game we have sakura leafs as a particle in various scenes. I will either create a new one rather than decompressing it from the original as I need to animate it anyway.
